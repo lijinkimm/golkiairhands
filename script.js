@@ -126,16 +126,43 @@ How to wear it ㅣ 착용법
     if (!searchWrap.contains(e.target)) closeSuggestions();
   });
 
-  // ---------- section C: mouse-follow color reveal ----------
+  // ---------- section C: mouse-paint color reveal ----------
   const sectionC = document.getElementById('section-c');
+  const sectionCColor = sectionC.querySelector('.section-c__color');
+  let cMaskCanvas = null;
+
+  function cEnsureCanvas(rect) {
+    if (!cMaskCanvas) cMaskCanvas = document.createElement('canvas');
+    const w = Math.round(rect.width);
+    const h = Math.round(rect.height);
+    if (cMaskCanvas.width !== w || cMaskCanvas.height !== h) {
+      cMaskCanvas.width = w;
+      cMaskCanvas.height = h;
+    }
+    return cMaskCanvas;
+  }
+
   sectionC.addEventListener('mousemove', (e) => {
     const rect = sectionC.getBoundingClientRect();
-    sectionC.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-    sectionC.style.setProperty('--my', `${e.clientY - rect.top}px`);
+    const canvas = cEnsureCanvas(rect);
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const half = 60;
+
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#fff';
+    ctx.filter = 'blur(18px)';
+    ctx.fillRect(x - half, y - half, half * 2, half * 2);
+    ctx.filter = 'none';
+
+    const url = canvas.toDataURL();
+    sectionCColor.style.webkitMaskImage = `url(${url})`;
+    sectionCColor.style.maskImage = `url(${url})`;
+    sectionC.classList.add('is-hovering');
   });
+
   sectionC.addEventListener('mouseleave', () => {
-    sectionC.style.setProperty('--mx', '-999px');
-    sectionC.style.setProperty('--my', '-999px');
+    sectionC.classList.remove('is-hovering');
   });
 
   // ---------- section B: video grid ----------

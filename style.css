@@ -65,9 +65,11 @@ p { margin: 0; }
 .section-c img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .section-c__mono { filter: grayscale(1); }
 .section-c__color {
-  -webkit-mask-image: radial-gradient(circle 90px at var(--mx, -999px) var(--my, -999px), #fff 60%, transparent 100%);
-  mask-image: radial-gradient(circle 90px at var(--mx, -999px) var(--my, -999px), #fff 60%, transparent 100%);
-  transition: mask-position .02s linear;
+  opacity: 0;
+  pointer-events: none;
+}
+.section-c.is-hovering .section-c__color {
+  opacity: 1;
 }
 .section-c__caption {
   position: relative; z-index: 2; padding: 56px;
