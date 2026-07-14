@@ -66,6 +66,7 @@ p { margin: 0; }
 .section-c__mono { filter: grayscale(1); }
 .section-c__color-canvas {
   position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 2;
   opacity: 0;
   pointer-events: none;
 }
@@ -113,14 +114,14 @@ p { margin: 0; }
   position: relative; height: 690px; width: 100%; overflow: hidden;
   background: var(--ink); margin-top: 132px; color: var(--white);
 }
-.section-d__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.section-d__video { position: absolute !important; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .section-d__heading {
-  position: absolute; left: 23px; top: 25px; width: 260px;
-  font-size: clamp(22px, 3vw, 36px); font-weight: 800; z-index: 1;
+  position: absolute; left: 23px; top: 25px; width: 260px; z-index: 2;
+  font-size: clamp(22px, 3vw, 36px); font-weight: 800;
 }
-.section-d__body { position: absolute; left: 19px; top: 232px; width: 240px; font-size: 13px; line-height: 1.5; }
-.section-d__eyebrow-top { position: absolute; left: 21px; top: 474px; width: 160px; font-size: 15px; }
-.section-d__eyebrow-bottom { position: absolute; left: 22px; top: 602px; width: 110px; font-size: 15px; }
+.section-d__body { position: absolute; left: 19px; top: 232px; width: 240px; font-size: 13px; line-height: 1.5; z-index: 2; }
+.section-d__eyebrow-top { position: absolute; left: 21px; top: 474px; width: 160px; font-size: 15px; z-index: 2; }
+.section-d__eyebrow-bottom { position: absolute; left: 22px; top: 602px; width: 110px; font-size: 15px; z-index: 2; }
 
 /* ===== section B — shorts grid ===== */
 .section-b { padding: 80px 48px 60px; width: 100%; }
@@ -149,14 +150,14 @@ p { margin: 0; }
 
 /* ===== full-bleed video ===== */
 .section-full-video { position: relative; width: 100%; aspect-ratio: 1264/720; overflow: hidden; background: var(--bg); }
-.section-full-video__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.section-full-video__video { position: absolute !important; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .section-full-video__heading {
-  position: absolute; left: 23px; top: 25px; width: 260px; z-index: 1;
+  position: absolute; left: 23px; top: 25px; width: 260px; z-index: 2;
   font-size: clamp(22px, 3vw, 36px); font-weight: 800; color: var(--ink);
 }
-.section-full-video__body { position: absolute; left: 19px; top: 232px; width: 240px; font-size: 13px; line-height: 1.5; color: var(--ink); }
-.section-full-video__eyebrow-top { position: absolute; left: 21px; top: 474px; width: 160px; font-size: 15px; color: var(--ink); }
-.section-full-video__eyebrow-bottom { position: absolute; left: 22px; top: 557px; width: 110px; font-size: 15px; color: var(--ink); }
+.section-full-video__body { position: absolute; left: 19px; top: 232px; width: 240px; font-size: 13px; line-height: 1.5; color: var(--ink); z-index: 2; }
+.section-full-video__eyebrow-top { position: absolute; left: 21px; top: 474px; width: 160px; font-size: 15px; color: var(--ink); z-index: 2; }
+.section-full-video__eyebrow-bottom { position: absolute; left: 22px; top: 557px; width: 110px; font-size: 15px; color: var(--ink); z-index: 2; }
 
 /* ===== section E — half/half purchase ===== */
 .section-e { min-height: 100vh; width: 100%; display: flex; flex-wrap: wrap; }
