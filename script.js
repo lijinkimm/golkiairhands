@@ -154,6 +154,20 @@ How to wear it ㅣ 착용법
     }
   }
 
+  // mirrors CSS object-fit:cover so the canvas draw lines up with the <img> beneath it
+  function cCoverCrop(srcW, srcH, destW, destH) {
+    const srcRatio = srcW / srcH;
+    const destRatio = destW / destH;
+    if (srcRatio > destRatio) {
+      const sh = srcH;
+      const sw = srcH * destRatio;
+      return { sx: (srcW - sw) / 2, sy: 0, sw, sh };
+    }
+    const sw = srcW;
+    const sh = srcW / destRatio;
+    return { sx: 0, sy: (srcH - sh) / 2, sw, sh };
+  }
+
   function cPaintFrame() {
     cRafScheduled = false;
     if (!cPendingPoint || !cColorSource.complete) return;
@@ -172,9 +186,10 @@ How to wear it ㅣ 착용법
     cMaskCtx.fillStyle = gradient;
     cMaskCtx.fillRect(0, 0, cMaskCanvas.width, cMaskCanvas.height);
 
+    const crop = cCoverCrop(cColorSource.naturalWidth, cColorSource.naturalHeight, cDisplayCanvas.width, cDisplayCanvas.height);
     cDisplayCtx.clearRect(0, 0, cDisplayCanvas.width, cDisplayCanvas.height);
     cDisplayCtx.globalCompositeOperation = 'source-over';
-    cDisplayCtx.drawImage(cColorSource, 0, 0, cDisplayCanvas.width, cDisplayCanvas.height);
+    cDisplayCtx.drawImage(cColorSource, crop.sx, crop.sy, crop.sw, crop.sh, 0, 0, cDisplayCanvas.width, cDisplayCanvas.height);
     cDisplayCtx.globalCompositeOperation = 'destination-in';
     cDisplayCtx.drawImage(cMaskCanvas, 0, 0);
     cDisplayCtx.globalCompositeOperation = 'source-over';
