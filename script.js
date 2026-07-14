@@ -128,37 +128,62 @@ How to wear it ㅣ 착용법
 
   // ---------- section C: mouse-paint color reveal ----------
   const sectionC = document.getElementById('section-c');
-  const sectionCColor = sectionC.querySelector('.section-c__color');
+  const cColorSource = sectionC.querySelector('.section-c__color-source');
+  const cDisplayCanvas = sectionC.querySelector('.section-c__color-canvas');
+  const cDisplayCtx = cDisplayCanvas.getContext('2d');
+  const cDpr = Math.min(window.devicePixelRatio || 1, 2);
   let cMaskCanvas = null;
+  let cMaskCtx = null;
+  let cPendingPoint = null;
+  let cRafScheduled = false;
 
-  function cEnsureCanvas(rect) {
-    if (!cMaskCanvas) cMaskCanvas = document.createElement('canvas');
-    const w = Math.round(rect.width);
-    const h = Math.round(rect.height);
+  function cEnsureCanvases(rect) {
+    const w = Math.round(rect.width * cDpr);
+    const h = Math.round(rect.height * cDpr);
+    if (cDisplayCanvas.width !== w || cDisplayCanvas.height !== h) {
+      cDisplayCanvas.width = w;
+      cDisplayCanvas.height = h;
+    }
+    if (!cMaskCanvas) {
+      cMaskCanvas = document.createElement('canvas');
+      cMaskCtx = cMaskCanvas.getContext('2d');
+    }
     if (cMaskCanvas.width !== w || cMaskCanvas.height !== h) {
       cMaskCanvas.width = w;
       cMaskCanvas.height = h;
     }
-    return cMaskCanvas;
+  }
+
+  function cPaintFrame() {
+    cRafScheduled = false;
+    if (!cPendingPoint || !cColorSource.complete) return;
+    const { x, y, rect } = cPendingPoint;
+    cPendingPoint = null;
+    cEnsureCanvases(rect);
+
+    const half = 60 * cDpr;
+    cMaskCtx.fillStyle = '#fff';
+    cMaskCtx.filter = 'blur(18px)';
+    cMaskCtx.fillRect(x * cDpr - half, y * cDpr - half, half * 2, half * 2);
+    cMaskCtx.filter = 'none';
+
+    cDisplayCtx.clearRect(0, 0, cDisplayCanvas.width, cDisplayCanvas.height);
+    cDisplayCtx.globalCompositeOperation = 'source-over';
+    cDisplayCtx.drawImage(cColorSource, 0, 0, cDisplayCanvas.width, cDisplayCanvas.height);
+    cDisplayCtx.globalCompositeOperation = 'destination-in';
+    cDisplayCtx.drawImage(cMaskCanvas, 0, 0);
+    cDisplayCtx.globalCompositeOperation = 'source-over';
+
+    sectionC.classList.add('is-hovering');
   }
 
   sectionC.addEventListener('mousemove', (e) => {
     const rect = sectionC.getBoundingClientRect();
-    const canvas = cEnsureCanvas(rect);
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const half = 60;
-
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#fff';
-    ctx.filter = 'blur(18px)';
-    ctx.fillRect(x - half, y - half, half * 2, half * 2);
-    ctx.filter = 'none';
-
-    const url = canvas.toDataURL();
-    sectionCColor.style.webkitMaskImage = `url(${url})`;
-    sectionCColor.style.maskImage = `url(${url})`;
-    sectionC.classList.add('is-hovering');
+    cPendingPoint = { x: e.clientX - rect.left, y: e.clientY - rect.top, rect };
+    if (!cRafScheduled) {
+      cRafScheduled = true;
+      requestAnimationFrame(cPaintFrame);
+    }
   });
 
   sectionC.addEventListener('mouseleave', () => {
