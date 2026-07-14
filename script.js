@@ -209,28 +209,40 @@ How to wear it ㅣ 착용법
     const cy = y * cDpr;
     const radius = C_RADIUS * cDpr;
 
-    // paint this stroke onto the persistent reveal mask (accumulates, never cleared)
-    // many finely-spaced stops following a smoothstep curve approximate a true gaussian
-    // falloff (canvas gradients only interpolate linearly between stops, so more stops
-    // means a smoother-looking edge)
-    const gradient = cRevealCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-    const coreRatio = 0.15; // small fully-opaque core, most of the radius is soft fade
-    const steps = 24;
-    for (let i = 0; i <= steps; i++) {
-      const t = i / steps;
-      let alpha;
-      if (t <= coreRatio) {
-        alpha = 1;
-      } else {
-        const u = Math.min(1, (t - coreRatio) / (1 - coreRatio));
-        alpha = 1 - (u * u * (3 - 2 * u)); // smoothstep ease
-      }
-      gradient.addColorStop(t, `rgba(255,255,255,${alpha})`);
-    }
-    cRevealCtx.fillStyle = gradient;
-    cRevealCtx.fillRect(0, 0, cRevealMask.width, cRevealMask.height);
-
+    cPaintWatercolorStroke(cx, cy, radius);
     cRender();
+  }
+
+  // paints one soft, irregular blob cluster onto the persistent reveal mask — several
+  // randomly offset/sized soft-edged blots overlapping like watercolor pigment bleeding,
+  // instead of one perfectly circular gradient
+  function cPaintWatercolorStroke(cx, cy, baseRadius) {
+    const blobCount = 5;
+    const steps = 14;
+    for (let b = 0; b < blobCount; b++) {
+      const angle = Math.random() * Math.PI * 2;
+      const dist = Math.random() * baseRadius * 0.4;
+      const bx = cx + Math.cos(angle) * dist;
+      const by = cy + Math.sin(angle) * dist;
+      const r = baseRadius * (0.5 + Math.random() * 0.6);
+      const peakAlpha = 0.4 + Math.random() * 0.35;
+      const coreRatio = 0.08 + Math.random() * 0.15;
+
+      const gradient = cRevealCtx.createRadialGradient(bx, by, 0, bx, by, r);
+      for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        let alpha;
+        if (t <= coreRatio) {
+          alpha = peakAlpha;
+        } else {
+          const u = Math.min(1, (t - coreRatio) / (1 - coreRatio));
+          alpha = peakAlpha * (1 - (u * u * (3 - 2 * u))); // smoothstep ease
+        }
+        gradient.addColorStop(t, `rgba(255,255,255,${alpha})`);
+      }
+      cRevealCtx.fillStyle = gradient;
+      cRevealCtx.fillRect(bx - r, by - r, r * 2, r * 2);
+    }
   }
 
   sectionC.addEventListener('mousemove', (e) => {
