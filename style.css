@@ -203,6 +203,7 @@ p { margin: 0; }
 .section-f__intro p { font-size: 13px; color: var(--ink-3); line-height: 1.6; }
 .section-f__image { position: relative; flex: 1 1 480px; min-height: 640px; }
 .section-f__image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.section-f__image-label { position: absolute; top: 24px; left: 24px; z-index: 1; font-family: monospace; font-size: 11px; color: var(--ink-4); }
 
 /* ===== section G ===== */
 .section-g { min-height: 100vh; width: 100%; display: flex; flex-wrap: wrap; }
