@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOLKI AIRHANDS — House of Yakson Special Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">GOLKI LAB</div>
+  <nav class="main-nav">
+    <a href="#section-f" data-scroll="section-f">PRODUCT</a>
+    <a href="#section-g" data-scroll="section-g">HOW TO USE</a>
+    <a href="#section-h" data-scroll="section-h">REVIEW</a>
+    <a href="#section-i" data-scroll="section-i">FAQ</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ SECTION C — full frame hover-reveal image ============ -->
+  <section class="section-c" id="section-c" data-media>
+    <img class="section-c__mono" src="./img_7948-mrjz6ho5-ftvv.png" alt="" data-fallback="mono">
+    <img class="section-c__color" src="./img_7948-mrjz6ho5-ftvv.png" alt="" data-fallback="color">
+    <p class="section-c__caption">It is a product unique to the weak family that enjoys professional contours and reduced management at home every day, and serves as a booster for facial care for home care after intensive management.</p>
+  </section>
+
+  <!-- ============ SECTION A — hero / search ============ -->
+  <section class="section-a" id="section-a">
+    <div class="hero">
+      <h1 class="hero__title">GOLKI<br>AIRHANDS<span class="hero__tm">TM</span></h1>
+      <p class="hero__tagline">embody the craftsmanship of the fingertips with technology, the weak grandson in my hand &lsquo;GOLKI LAB&rsquo;.</p>
+
+      <div class="search" id="search">
+        <div class="search__bar">
+          <input class="search__input" id="searchInput" type="text" placeholder="PRODUCT, HOW TO USE, FAQ SEARCH" autocomplete="off">
+          <button class="search__btn" id="searchBtn" type="button" aria-label="Search">→</button>
+        </div>
+        <div class="search__suggestions" id="searchSuggestions" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION D — heritage video (dark) ============ -->
+  <section class="section-d" id="section-d" data-media>
+    <video class="section-d__video" autoplay muted loop playsinline data-fallback="video">
+      <source src="./assets/section-d-fill.mp4" type="video/mp4">
+    </video>
+    <div class="section-d__heading">HOUSE OF YAKSON<br>SPECIAL<br>CARE</div>
+    <p class="section-d__body">Golki Lab, which contains the philosophy of a weak grandmother, was created to popularize &lsquo;real physical meridians&rsquo; that directly stimulate the facial skeleton and muscles as home care. It provides effective home care services after the overwhelming line-up of aesthetic shops without time and space constraints.</p>
+    <strong class="section-d__eyebrow-top">The Original GOLKI Therapy.</strong>
+    <strong class="section-d__eyebrow-bottom">40 Years of Heritage.</strong>
+  </section>
+
+  <!-- ============ SECTION B — SHORTS video grid ============ -->
+  <section class="section-b" id="section-b">
+    <div class="section-b__intro">
+      <h2>SHORTS</h2>
+      <p>It is a premium home care device that reinterprets bone therapy handwriting know-how of a 46-year-old grandson with precision engineering technology.</p>
+    </div>
+    <div class="video-grid" id="videoGrid"></div>
+    <p class="section-b__outro">Through the strong pressing force of the internal airbag and the target acupressure ball, it realizes a &lsquo;physical moving meridians&rsquo; that presses hard with real hands from the jawline to the cheekbones and scalp.</p>
+  </section>
+
+  <!-- ============ FULL PAGE AUTOPLAY VIDEO ============ -->
+  <section class="section-full-video" id="section-full-video" data-media>
+    <video class="section-full-video__video" autoplay muted loop playsinline data-fallback="video">
+      <source src="./assets/full-video-1.mp4" type="video/mp4">
+    </video>
+    <div class="section-full-video__heading">YAKSON<br>HOME<br>BOOST CARE</div>
+    <p class="section-full-video__body">For four decades, our philosophy has been rooted in the harmony of facial structure, touch, and balance. Built on authentic expertise and refined through generations of practice, GOLKI continues to inspire a new standard of beauty—where timeless tradition meets modern innovation, creating naturally balanced, confident, and enduring results.</p>
+    <strong class="section-full-video__eyebrow-top">The Original GOLKI Therapy.</strong>
+    <strong class="section-full-video__eyebrow-bottom">40 Years of Heritage.</strong>
+  </section>
+
+  <!-- ============ SECTION E — half/half purchase panel ============ -->
+  <section class="section-e" id="section-e">
+    <div class="section-e__image" data-media>
+      <img src="./img_7963-mrjzghoz-988d.png" alt="" data-fallback="cover">
+    </div>
+    <div class="section-e__panel">
+      <div>
+        <div class="section-e__kicker">GOLKI LAB</div>
+        <div class="section-e__title">AIRHANDS WINTER</div>
+        <div class="section-e__stars">★★★★★ <span>128개 리뷰</span></div>
+      </div>
+      <p class="section-e__desc">46년 역사 약손명가의 골기테라피 수기 노하우를 정밀 공학 기술로 재해석한 프리미엄 홈케어 디바이스입니다.</p>
+      <div class="section-e__sizes">
+        <div class="section-e__sizes-label">옵션</div>
+        <div class="size-options" id="sizeOptions">
+          <button class="size-option" data-size="S">STANDARD S</button>
+          <button class="size-option is-selected" data-size="M">STANDARD M</button>
+          <button class="size-option" data-size="L">STANDARD L</button>
+        </div>
+      </div>
+      <div class="section-e__cta">
+        <span>KILL IT</span>
+        <span>₩149,000</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION F — product intro + accordion + image ============ -->
+  <section class="section-f" id="section-f">
+    <div class="section-f__left">
+      <div class="section-f__intro">
+        <h2>PRODUCTS</h2>
+        <p>Three-dimensional airbags and customized acupressure balls inside the device work organically to strongly press the lower jaw, face and scalp in all directions. With just one use, it provides immediate relief of swelling and lifting, and innovative savings in cost and time are achieved with continuous face line management every day.</p>
+      </div>
+      <div class="accordion" id="accordionF"></div>
+    </div>
+    <div class="section-f__image" data-media>
+      <img src="./img_7954-mrjzf1wb-2emy.jpg" alt="" data-fallback="cover">
+    </div>
+  </section>
+
+  <!-- ============ SECTION G — image + accordion (purchase) ============ -->
+  <section class="section-g" id="section-g">
+    <div class="section-g__image" data-media>
+      <img src="./img_6409-mrjzh0ve-oiav.png" alt="" data-fallback="cover">
+    </div>
+    <div class="section-g__right">
+      <div class="accordion" id="accordionG"></div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY — 6 tall image frames ============ -->
+  <section class="gallery" id="section-gallery">
+    <a class="gallery__tile" href="#" data-media><img src="" alt="이미지 1" data-fallback="cover" data-label="이미지 1"></a>
+    <a class="gallery__tile" href="#" data-media><img src="" alt="이미지 2" data-fallback="cover" data-label="이미지 2"></a>
+    <a class="gallery__tile" href="#" data-media><img src="" alt="이미지 3" data-fallback="cover" data-label="이미지 3"></a>
+    <a class="gallery__tile" href="#" data-media><img src="" alt="이미지 4" data-fallback="cover" data-label="이미지 4"></a>
+    <a class="gallery__tile" href="#" data-media><img src="" alt="이미지 5" data-fallback="cover" data-label="이미지 5"></a>
+    <a class="gallery__tile" href="#" data-media><img src="" alt="이미지 6" data-fallback="cover" data-label="이미지 6"></a>
+  </section>
+
+  <!-- ============ SECTION H — customer reviews ============ -->
+  <section class="section-h" id="section-h">
+    <div class="section-h__inner">
+      <div class="section-h__head">
+        <div class="section-h__stars">★★★★★</div>
+        <div class="section-h__title">고객 리뷰</div>
+        <div class="section-h__count">128개 리뷰</div>
+      </div>
+      <div class="section-h__tools">
+        <input class="section-h__search" type="text" placeholder="리뷰 검색" id="reviewSearch">
+        <div class="section-h__chip">평점순 ▾</div>
+        <div class="section-h__chip">사진 리뷰만</div>
+      </div>
+      <div class="review-list" id="reviewList"></div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION I — product FAQ ============ -->
+  <section class="section-i" id="section-i">
+    <div class="section-i__inner">
+      <div class="section-i__left">
+        <div class="section-i__title">PRODUCT FAQS</div>
+      </div>
+      <div class="section-i__right">
+        <div class="accordion" id="accordionFAQ"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION J — footer ============ -->
+  <section class="section-j" id="section-j">
+    <div class="section-j__banner">
+      지금까지 <span>1,000명 이상</span>이<br>
+      AIRHANDS와 함께 골격 라인을 되찾았습니다
+    </div>
+    <div class="section-j__grid">
+      <div class="footer-col">
+        <div class="footer-col__title">GOLKI LAB</div>
+        <div class="footer-col__body">서울특별시 강남구 테헤란로 000<br>hello@golkilab.com</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col__title">제품</div>
+        <a href="#section-f" data-scroll="section-f">AirHands Pro</a>
+        <a href="#section-g" data-scroll="section-g">사용법</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col__title">고객지원</div>
+        <a href="#section-h" data-scroll="section-h">리뷰</a>
+        <a href="#section-i" data-scroll="section-i">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col__title">회사</div>
+        <a href="#section-a" data-scroll="section-a">브랜드 소개</a>
+        <span>개인정보처리방침</span>
+      </div>
+    </div>
+    <div class="section-j__copyright">Copyright © 2026 GOLKI LAB. All rights reserved.</div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
