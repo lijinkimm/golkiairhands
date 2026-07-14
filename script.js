@@ -137,6 +137,8 @@ How to wear it ㅣ 착용법
   let cRevealCtx = null;
   let cPatchCanvas = null;
   let cPatchCtx = null;
+  let cGrayscaleBase = null; // built once per size (not every frame) — cheap to blit afterward
+  let cGrayscaleCtx = null;
   let cPendingPoint = null;
   let cRafScheduled = false;
   let cLastCrop = null;
@@ -144,7 +146,8 @@ How to wear it ㅣ 착용법
   function cEnsureCanvas(rect) {
     const w = Math.round(rect.width * cDpr);
     const h = Math.round(rect.height * cDpr);
-    if (cCanvas.width !== w || cCanvas.height !== h) {
+    const resized = cCanvas.width !== w || cCanvas.height !== h;
+    if (resized) {
       cCanvas.width = w;
       cCanvas.height = h;
     }
@@ -164,6 +167,15 @@ How to wear it ㅣ 착용법
       cPatchCanvas.width = w;
       cPatchCanvas.height = h;
     }
+    if (!cGrayscaleBase) {
+      cGrayscaleBase = document.createElement('canvas');
+      cGrayscaleCtx = cGrayscaleBase.getContext('2d');
+    }
+    if (cGrayscaleBase.width !== w || cGrayscaleBase.height !== h) {
+      cGrayscaleBase.width = w;
+      cGrayscaleBase.height = h;
+    }
+    return resized;
   }
 
   // mirrors CSS object-fit:cover so the drawn image fills the canvas without distortion
@@ -180,13 +192,30 @@ How to wear it ㅣ 착용법
     return { sx: 0, sy: (srcH - sh) / 2, sw, sh };
   }
 
-  function cRender() {
-    cLastCrop = cCoverCrop(cSource.naturalWidth, cSource.naturalHeight, cCanvas.width, cCanvas.height);
+  // desaturate by hand (average of min/max channel) instead of ctx.filter — canvas 2D
+  // 'filter' support is inconsistent on some mobile browsers and silently no-ops there,
+  // which was leaving the "grayscale" base showing full color
+  function cDesaturate(ctx, w, h) {
+    if (w <= 0 || h <= 0) return;
+    const imageData = ctx.getImageData(0, 0, w, h);
+    const data = imageData.data;
+    for (let i = 0; i < data.length; i += 4) {
+      const gray = data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114;
+      data[i] = data[i + 1] = data[i + 2] = gray;
+    }
+    ctx.putImageData(imageData, 0, 0);
+  }
 
+  function cBuildGrayscaleBase() {
+    cLastCrop = cCoverCrop(cSource.naturalWidth, cSource.naturalHeight, cCanvas.width, cCanvas.height);
+    cGrayscaleCtx.clearRect(0, 0, cGrayscaleBase.width, cGrayscaleBase.height);
+    cGrayscaleCtx.drawImage(cSource, cLastCrop.sx, cLastCrop.sy, cLastCrop.sw, cLastCrop.sh, 0, 0, cGrayscaleBase.width, cGrayscaleBase.height);
+    cDesaturate(cGrayscaleCtx, cGrayscaleBase.width, cGrayscaleBase.height);
+  }
+
+  function cRender() {
     cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
-    cCtx.filter = 'grayscale(1)';
-    cCtx.drawImage(cSource, cLastCrop.sx, cLastCrop.sy, cLastCrop.sw, cLastCrop.sh, 0, 0, cCanvas.width, cCanvas.height);
-    cCtx.filter = 'none';
+    cCtx.drawImage(cGrayscaleBase, 0, 0);
 
     // stamp full color, clipped to everywhere the cursor has painted so far
     cPatchCtx.clearRect(0, 0, cPatchCanvas.width, cPatchCanvas.height);
@@ -203,7 +232,7 @@ How to wear it ㅣ 착용법
     if (!cPendingPoint || !cSource.complete) return;
     const { x, y, rect } = cPendingPoint;
     cPendingPoint = null;
-    cEnsureCanvas(rect);
+    if (cEnsureCanvas(rect)) cBuildGrayscaleBase();
 
     const cx = x * cDpr;
     const cy = y * cDpr;
@@ -258,7 +287,10 @@ How to wear it ㅣ 착용법
     cQueuePaint(e.clientX, e.clientY);
   });
 
-  // touch support: finger drag paints the same way the mouse does
+  // touch support: finger drag paints the same way the mouse does.
+  // Deliberately passive / no preventDefault — this section sits at the very top of the
+  // page, so blocking default touch behavior here would also block the user's first
+  // scroll gesture on the page.
   sectionC.addEventListener('touchstart', (e) => {
     const t = e.touches[0];
     if (t) cQueuePaint(t.clientX, t.clientY);
@@ -266,15 +298,13 @@ How to wear it ㅣ 착용법
 
   sectionC.addEventListener('touchmove', (e) => {
     const t = e.touches[0];
-    if (t) {
-      e.preventDefault(); // keep the page from scrolling while painting
-      cQueuePaint(t.clientX, t.clientY);
-    }
-  }, { passive: false });
+    if (t) cQueuePaint(t.clientX, t.clientY);
+  }, { passive: true });
 
   function cInitBase() {
     if (!cSource.complete) { cSource.addEventListener('load', cInitBase, { once: true }); return; }
     cEnsureCanvas(sectionC.getBoundingClientRect());
+    cBuildGrayscaleBase();
     cRender();
   }
   cInitBase();
