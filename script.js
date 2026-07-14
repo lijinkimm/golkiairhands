@@ -161,12 +161,16 @@ How to wear it ㅣ 착용법
     cPendingPoint = null;
     cEnsureCanvases(rect);
 
-    const half = 60 * cDpr;
+    const cx = x * cDpr;
+    const cy = y * cDpr;
+    const radius = 100 * cDpr;
     cMaskCtx.clearRect(0, 0, cMaskCanvas.width, cMaskCanvas.height);
-    cMaskCtx.fillStyle = '#fff';
-    cMaskCtx.filter = 'blur(18px)';
-    cMaskCtx.fillRect(x * cDpr - half, y * cDpr - half, half * 2, half * 2);
-    cMaskCtx.filter = 'none';
+    const gradient = cMaskCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+    gradient.addColorStop(0, 'rgba(255,255,255,1)');
+    gradient.addColorStop(0.45, 'rgba(255,255,255,1)');
+    gradient.addColorStop(1, 'rgba(255,255,255,0)');
+    cMaskCtx.fillStyle = gradient;
+    cMaskCtx.fillRect(0, 0, cMaskCanvas.width, cMaskCanvas.height);
 
     cDisplayCtx.clearRect(0, 0, cDisplayCanvas.width, cDisplayCanvas.height);
     cDisplayCtx.globalCompositeOperation = 'source-over';
