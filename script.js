@@ -245,14 +245,32 @@ How to wear it ㅣ 착용법
     }
   }
 
-  sectionC.addEventListener('mousemove', (e) => {
+  function cQueuePaint(clientX, clientY) {
     const rect = sectionC.getBoundingClientRect();
-    cPendingPoint = { x: e.clientX - rect.left, y: e.clientY - rect.top, rect };
+    cPendingPoint = { x: clientX - rect.left, y: clientY - rect.top, rect };
     if (!cRafScheduled) {
       cRafScheduled = true;
       requestAnimationFrame(cPaintFrame);
     }
+  }
+
+  sectionC.addEventListener('mousemove', (e) => {
+    cQueuePaint(e.clientX, e.clientY);
   });
+
+  // touch support: finger drag paints the same way the mouse does
+  sectionC.addEventListener('touchstart', (e) => {
+    const t = e.touches[0];
+    if (t) cQueuePaint(t.clientX, t.clientY);
+  }, { passive: true });
+
+  sectionC.addEventListener('touchmove', (e) => {
+    const t = e.touches[0];
+    if (t) {
+      e.preventDefault(); // keep the page from scrolling while painting
+      cQueuePaint(t.clientX, t.clientY);
+    }
+  }, { passive: false });
 
   function cInitBase() {
     if (!cSource.complete) { cSource.addEventListener('load', cInitBase, { once: true }); return; }
