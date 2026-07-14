@@ -210,9 +210,14 @@ How to wear it ㅣ 착용법
     const radius = C_RADIUS * cDpr;
 
     // paint this stroke onto the persistent reveal mask (accumulates, never cleared)
+    // multiple stops approximate a gaussian falloff instead of a linear fade, for a softer edge
     const gradient = cRevealCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
     gradient.addColorStop(0, 'rgba(255,255,255,1)');
-    gradient.addColorStop(0.45, 'rgba(255,255,255,1)');
+    gradient.addColorStop(0.25, 'rgba(255,255,255,1)');
+    gradient.addColorStop(0.45, 'rgba(255,255,255,0.9)');
+    gradient.addColorStop(0.6, 'rgba(255,255,255,0.7)');
+    gradient.addColorStop(0.75, 'rgba(255,255,255,0.45)');
+    gradient.addColorStop(0.88, 'rgba(255,255,255,0.18)');
     gradient.addColorStop(1, 'rgba(255,255,255,0)');
     cRevealCtx.fillStyle = gradient;
     cRevealCtx.fillRect(0, 0, cRevealMask.width, cRevealMask.height);
