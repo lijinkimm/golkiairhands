@@ -132,7 +132,7 @@ How to wear it ㅣ 착용법
   const cCanvas = sectionC.querySelector('.section-c__canvas');
   const cCtx = cCanvas.getContext('2d');
   const cDpr = Math.min(window.devicePixelRatio || 1, 2);
-  const C_RADIUS = 200; // CSS px; brush size for the reveal
+  const C_RADIUS = 130; // CSS px; core brush size (blobs extend further via their own radius multiplier)
   let cRevealMask = null; // accumulates over time — never cleared on mousemove/mouseleave
   let cRevealCtx = null;
   let cPatchCanvas = null;
@@ -224,9 +224,9 @@ How to wear it ㅣ 착용법
       const dist = Math.random() * baseRadius * 0.4;
       const bx = cx + Math.cos(angle) * dist;
       const by = cy + Math.sin(angle) * dist;
-      const r = baseRadius * (0.5 + Math.random() * 0.6);
+      const r = baseRadius * (0.9 + Math.random() * 1.1);
       const peakAlpha = 0.4 + Math.random() * 0.35;
-      const coreRatio = 0.08 + Math.random() * 0.15;
+      const coreRatio = 0.04 + Math.random() * 0.08;
 
       const gradient = cRevealCtx.createRadialGradient(bx, by, 0, bx, by, r);
       for (let i = 0; i <= steps; i++) {
