@@ -293,6 +293,7 @@ p { margin: 0; }
   .main-nav { gap: 18px; font-size: 11px; }
   .section-a, .section-b, .section-h, .section-i { padding-left: 20px; padding-right: 20px; }
   .hero__tagline { white-space: normal; max-width: 480px; }
+  .hero__tm { top: 0; }
   .section-c__caption { padding: 28px; }
   .video-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery { grid-template-columns: repeat(2, 1fr); }
