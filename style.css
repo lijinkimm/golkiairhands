@@ -77,7 +77,7 @@ p { margin: 0; }
   letter-spacing: -0.02em; line-height: .98; position: relative;
 }
 .hero__airhands-row { display: inline-flex; align-items: flex-start; }
-.hero__tm { font-size: 0.175em; font-weight: 700; line-height: 1; margin-left: 4px; }
+.hero__tm { font-size: 0.175em; font-weight: 700; line-height: 1; margin-left: 4px; position: relative; top: 20px; }
 .hero__tagline { max-width: none; white-space: nowrap; font-size: 15px; line-height: 1.6; color: var(--ink-3); font-weight: 400; }
 
 .search { position: relative; width: 100%; max-width: 520px; margin-top: 12px; }
