@@ -255,4 +255,8 @@ p { margin: 0; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .section-f__left, .section-g__right { padding: 48px 28px; }
   .section-j { padding: 60px 20px 30px; }
+  /* aspect-ratio makes this section too short on narrow viewports to fit the
+     absolutely-positioned overlay text (it's tuned for desktop width), so give it
+     a fixed height like section D instead once the screen gets narrow */
+  .section-full-video { aspect-ratio: auto; height: 690px; }
 }
