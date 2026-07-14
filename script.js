@@ -126,12 +126,15 @@ How to wear it ㅣ 착용법
     if (!searchWrap.contains(e.target)) closeSuggestions();
   });
 
-  // ---------- section C: single canvas, grayscale everywhere except near the cursor ----------
+  // ---------- section C: single canvas, cursor paints color that stays revealed ----------
   const sectionC = document.getElementById('section-c');
   const cSource = sectionC.querySelector('.section-c__source');
   const cCanvas = sectionC.querySelector('.section-c__canvas');
   const cCtx = cCanvas.getContext('2d');
   const cDpr = Math.min(window.devicePixelRatio || 1, 2);
+  const C_RADIUS = 200; // CSS px; brush size for the reveal
+  let cRevealMask = null; // accumulates over time — never cleared on mousemove/mouseleave
+  let cRevealCtx = null;
   let cPatchCanvas = null;
   let cPatchCtx = null;
   let cPendingPoint = null;
@@ -144,6 +147,14 @@ How to wear it ㅣ 착용법
     if (cCanvas.width !== w || cCanvas.height !== h) {
       cCanvas.width = w;
       cCanvas.height = h;
+    }
+    if (!cRevealMask) {
+      cRevealMask = document.createElement('canvas');
+      cRevealCtx = cRevealMask.getContext('2d');
+    }
+    if (cRevealMask.width !== w || cRevealMask.height !== h) {
+      cRevealMask.width = w;
+      cRevealMask.height = h;
     }
     if (!cPatchCanvas) {
       cPatchCanvas = document.createElement('canvas');
@@ -169,12 +180,22 @@ How to wear it ㅣ 착용법
     return { sx: 0, sy: (srcH - sh) / 2, sw, sh };
   }
 
-  function cDrawGrayscaleBase() {
+  function cRender() {
     cLastCrop = cCoverCrop(cSource.naturalWidth, cSource.naturalHeight, cCanvas.width, cCanvas.height);
+
     cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
     cCtx.filter = 'grayscale(1)';
     cCtx.drawImage(cSource, cLastCrop.sx, cLastCrop.sy, cLastCrop.sw, cLastCrop.sh, 0, 0, cCanvas.width, cCanvas.height);
     cCtx.filter = 'none';
+
+    // stamp full color, clipped to everywhere the cursor has painted so far
+    cPatchCtx.clearRect(0, 0, cPatchCanvas.width, cPatchCanvas.height);
+    cPatchCtx.drawImage(cSource, cLastCrop.sx, cLastCrop.sy, cLastCrop.sw, cLastCrop.sh, 0, 0, cPatchCanvas.width, cPatchCanvas.height);
+    cPatchCtx.globalCompositeOperation = 'destination-in';
+    cPatchCtx.drawImage(cRevealMask, 0, 0);
+    cPatchCtx.globalCompositeOperation = 'source-over';
+
+    cCtx.drawImage(cPatchCanvas, 0, 0);
   }
 
   function cPaintFrame() {
@@ -183,25 +204,20 @@ How to wear it ㅣ 착용법
     const { x, y, rect } = cPendingPoint;
     cPendingPoint = null;
     cEnsureCanvas(rect);
-    cDrawGrayscaleBase();
 
     const cx = x * cDpr;
     const cy = y * cDpr;
-    const radius = 100 * cDpr;
+    const radius = C_RADIUS * cDpr;
 
-    // compose the color patch off-screen, then stamp it onto the visible canvas
-    cPatchCtx.clearRect(0, 0, cPatchCanvas.width, cPatchCanvas.height);
-    cPatchCtx.drawImage(cSource, cLastCrop.sx, cLastCrop.sy, cLastCrop.sw, cLastCrop.sh, 0, 0, cPatchCanvas.width, cPatchCanvas.height);
-    cPatchCtx.globalCompositeOperation = 'destination-in';
-    const gradient = cPatchCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+    // paint this stroke onto the persistent reveal mask (accumulates, never cleared)
+    const gradient = cRevealCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
     gradient.addColorStop(0, 'rgba(255,255,255,1)');
     gradient.addColorStop(0.45, 'rgba(255,255,255,1)');
     gradient.addColorStop(1, 'rgba(255,255,255,0)');
-    cPatchCtx.fillStyle = gradient;
-    cPatchCtx.fillRect(0, 0, cPatchCanvas.width, cPatchCanvas.height);
-    cPatchCtx.globalCompositeOperation = 'source-over';
+    cRevealCtx.fillStyle = gradient;
+    cRevealCtx.fillRect(0, 0, cRevealMask.width, cRevealMask.height);
 
-    cCtx.drawImage(cPatchCanvas, 0, 0);
+    cRender();
   }
 
   sectionC.addEventListener('mousemove', (e) => {
@@ -213,15 +229,10 @@ How to wear it ㅣ 착용법
     }
   });
 
-  sectionC.addEventListener('mouseleave', () => {
-    cEnsureCanvas(sectionC.getBoundingClientRect());
-    cDrawGrayscaleBase();
-  });
-
   function cInitBase() {
     if (!cSource.complete) { cSource.addEventListener('load', cInitBase, { once: true }); return; }
     cEnsureCanvas(sectionC.getBoundingClientRect());
-    cDrawGrayscaleBase();
+    cRender();
   }
   cInitBase();
   window.addEventListener('resize', cInitBase);
