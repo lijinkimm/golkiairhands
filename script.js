@@ -162,6 +162,7 @@ How to wear it ㅣ 착용법
     cEnsureCanvases(rect);
 
     const half = 60 * cDpr;
+    cMaskCtx.clearRect(0, 0, cMaskCanvas.width, cMaskCanvas.height);
     cMaskCtx.fillStyle = '#fff';
     cMaskCtx.filter = 'blur(18px)';
     cMaskCtx.fillRect(x * cDpr - half, y * cDpr - half, half * 2, half * 2);
