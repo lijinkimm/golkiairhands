@@ -126,35 +126,36 @@ How to wear it ㅣ 착용법
     if (!searchWrap.contains(e.target)) closeSuggestions();
   });
 
-  // ---------- section C: mouse-paint color reveal ----------
+  // ---------- section C: single canvas, grayscale everywhere except near the cursor ----------
   const sectionC = document.getElementById('section-c');
-  const cColorSource = sectionC.querySelector('.section-c__color-source');
-  const cDisplayCanvas = sectionC.querySelector('.section-c__color-canvas');
-  const cDisplayCtx = cDisplayCanvas.getContext('2d');
+  const cSource = sectionC.querySelector('.section-c__source');
+  const cCanvas = sectionC.querySelector('.section-c__canvas');
+  const cCtx = cCanvas.getContext('2d');
   const cDpr = Math.min(window.devicePixelRatio || 1, 2);
-  let cMaskCanvas = null;
-  let cMaskCtx = null;
+  let cPatchCanvas = null;
+  let cPatchCtx = null;
   let cPendingPoint = null;
   let cRafScheduled = false;
+  let cLastCrop = null;
 
-  function cEnsureCanvases(rect) {
+  function cEnsureCanvas(rect) {
     const w = Math.round(rect.width * cDpr);
     const h = Math.round(rect.height * cDpr);
-    if (cDisplayCanvas.width !== w || cDisplayCanvas.height !== h) {
-      cDisplayCanvas.width = w;
-      cDisplayCanvas.height = h;
+    if (cCanvas.width !== w || cCanvas.height !== h) {
+      cCanvas.width = w;
+      cCanvas.height = h;
     }
-    if (!cMaskCanvas) {
-      cMaskCanvas = document.createElement('canvas');
-      cMaskCtx = cMaskCanvas.getContext('2d');
+    if (!cPatchCanvas) {
+      cPatchCanvas = document.createElement('canvas');
+      cPatchCtx = cPatchCanvas.getContext('2d');
     }
-    if (cMaskCanvas.width !== w || cMaskCanvas.height !== h) {
-      cMaskCanvas.width = w;
-      cMaskCanvas.height = h;
+    if (cPatchCanvas.width !== w || cPatchCanvas.height !== h) {
+      cPatchCanvas.width = w;
+      cPatchCanvas.height = h;
     }
   }
 
-  // mirrors CSS object-fit:cover so the canvas draw lines up with the <img> beneath it
+  // mirrors CSS object-fit:cover so the drawn image fills the canvas without distortion
   function cCoverCrop(srcW, srcH, destW, destH) {
     const srcRatio = srcW / srcH;
     const destRatio = destW / destH;
@@ -168,33 +169,39 @@ How to wear it ㅣ 착용법
     return { sx: 0, sy: (srcH - sh) / 2, sw, sh };
   }
 
+  function cDrawGrayscaleBase() {
+    cLastCrop = cCoverCrop(cSource.naturalWidth, cSource.naturalHeight, cCanvas.width, cCanvas.height);
+    cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+    cCtx.filter = 'grayscale(1)';
+    cCtx.drawImage(cSource, cLastCrop.sx, cLastCrop.sy, cLastCrop.sw, cLastCrop.sh, 0, 0, cCanvas.width, cCanvas.height);
+    cCtx.filter = 'none';
+  }
+
   function cPaintFrame() {
     cRafScheduled = false;
-    if (!cPendingPoint || !cColorSource.complete) return;
+    if (!cPendingPoint || !cSource.complete) return;
     const { x, y, rect } = cPendingPoint;
     cPendingPoint = null;
-    cEnsureCanvases(rect);
+    cEnsureCanvas(rect);
+    cDrawGrayscaleBase();
 
     const cx = x * cDpr;
     const cy = y * cDpr;
     const radius = 100 * cDpr;
-    cMaskCtx.clearRect(0, 0, cMaskCanvas.width, cMaskCanvas.height);
-    const gradient = cMaskCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+
+    // compose the color patch off-screen, then stamp it onto the visible canvas
+    cPatchCtx.clearRect(0, 0, cPatchCanvas.width, cPatchCanvas.height);
+    cPatchCtx.drawImage(cSource, cLastCrop.sx, cLastCrop.sy, cLastCrop.sw, cLastCrop.sh, 0, 0, cPatchCanvas.width, cPatchCanvas.height);
+    cPatchCtx.globalCompositeOperation = 'destination-in';
+    const gradient = cPatchCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
     gradient.addColorStop(0, 'rgba(255,255,255,1)');
     gradient.addColorStop(0.45, 'rgba(255,255,255,1)');
     gradient.addColorStop(1, 'rgba(255,255,255,0)');
-    cMaskCtx.fillStyle = gradient;
-    cMaskCtx.fillRect(0, 0, cMaskCanvas.width, cMaskCanvas.height);
+    cPatchCtx.fillStyle = gradient;
+    cPatchCtx.fillRect(0, 0, cPatchCanvas.width, cPatchCanvas.height);
+    cPatchCtx.globalCompositeOperation = 'source-over';
 
-    const crop = cCoverCrop(cColorSource.naturalWidth, cColorSource.naturalHeight, cDisplayCanvas.width, cDisplayCanvas.height);
-    cDisplayCtx.clearRect(0, 0, cDisplayCanvas.width, cDisplayCanvas.height);
-    cDisplayCtx.globalCompositeOperation = 'source-over';
-    cDisplayCtx.drawImage(cColorSource, crop.sx, crop.sy, crop.sw, crop.sh, 0, 0, cDisplayCanvas.width, cDisplayCanvas.height);
-    cDisplayCtx.globalCompositeOperation = 'destination-in';
-    cDisplayCtx.drawImage(cMaskCanvas, 0, 0);
-    cDisplayCtx.globalCompositeOperation = 'source-over';
-
-    sectionC.classList.add('is-hovering');
+    cCtx.drawImage(cPatchCanvas, 0, 0);
   }
 
   sectionC.addEventListener('mousemove', (e) => {
@@ -207,8 +214,17 @@ How to wear it ㅣ 착용법
   });
 
   sectionC.addEventListener('mouseleave', () => {
-    sectionC.classList.remove('is-hovering');
+    cEnsureCanvas(sectionC.getBoundingClientRect());
+    cDrawGrayscaleBase();
   });
+
+  function cInitBase() {
+    if (!cSource.complete) { cSource.addEventListener('load', cInitBase, { once: true }); return; }
+    cEnsureCanvas(sectionC.getBoundingClientRect());
+    cDrawGrayscaleBase();
+  }
+  cInitBase();
+  window.addEventListener('resize', cInitBase);
 
   // ---------- section B: video grid ----------
   const videoGrid = document.getElementById('videoGrid');
