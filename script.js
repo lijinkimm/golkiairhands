@@ -210,15 +210,23 @@ How to wear it ㅣ 착용법
     const radius = C_RADIUS * cDpr;
 
     // paint this stroke onto the persistent reveal mask (accumulates, never cleared)
-    // multiple stops approximate a gaussian falloff instead of a linear fade, for a softer edge
+    // many finely-spaced stops following a smoothstep curve approximate a true gaussian
+    // falloff (canvas gradients only interpolate linearly between stops, so more stops
+    // means a smoother-looking edge)
     const gradient = cRevealCtx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-    gradient.addColorStop(0, 'rgba(255,255,255,1)');
-    gradient.addColorStop(0.25, 'rgba(255,255,255,1)');
-    gradient.addColorStop(0.45, 'rgba(255,255,255,0.9)');
-    gradient.addColorStop(0.6, 'rgba(255,255,255,0.7)');
-    gradient.addColorStop(0.75, 'rgba(255,255,255,0.45)');
-    gradient.addColorStop(0.88, 'rgba(255,255,255,0.18)');
-    gradient.addColorStop(1, 'rgba(255,255,255,0)');
+    const coreRatio = 0.15; // small fully-opaque core, most of the radius is soft fade
+    const steps = 24;
+    for (let i = 0; i <= steps; i++) {
+      const t = i / steps;
+      let alpha;
+      if (t <= coreRatio) {
+        alpha = 1;
+      } else {
+        const u = Math.min(1, (t - coreRatio) / (1 - coreRatio));
+        alpha = 1 - (u * u * (3 - 2 * u)); // smoothstep ease
+      }
+      gradient.addColorStop(t, `rgba(255,255,255,${alpha})`);
+    }
     cRevealCtx.fillStyle = gradient;
     cRevealCtx.fillRect(0, 0, cRevealMask.width, cRevealMask.height);
 
