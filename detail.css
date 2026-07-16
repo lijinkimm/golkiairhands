@@ -182,11 +182,15 @@
 
 @media (max-width: 860px) {
   .d-overview, .d-split, .d-colorpad, .d-process, .d-ba-row, .d-howto-intro { flex-direction: column; min-height: auto; height: auto; }
-  .d-overview__media { min-height: 320px; }
-  .d-overview__panel { padding: 56px 24px; }
-  .d-split__media { min-height: 320px; }
-  .d-split__text, .d-colorpad .d-split__text { padding: 56px 24px; flex: 1 1 auto; max-width: 100%; }
-  .d-colorpad__grid { flex: 1 1 auto; max-width: 100%; aspect-ratio: 1; }
+  /* each stacked block (image or text) reads as its own 9:16 mobile "card";
+     text blocks use aspect-ratio as a floor, not a hard cap, so long copy can
+     still grow past it instead of getting clipped */
+  .d-overview__media { aspect-ratio: 9 / 16; min-height: auto; }
+  .d-overview__panel { min-height: calc(100vw * 16 / 9); padding: 56px 24px; }
+  .d-split__media { aspect-ratio: 9 / 16; min-height: auto; }
+  .d-split__text, .d-colorpad .d-split__text { min-height: calc(100vw * 16 / 9); padding: 56px 24px; flex: 1 1 auto; max-width: 100%; overflow: visible; }
+  .d-split, .d-colorpad { overflow: visible; }
+  .d-colorpad__grid { flex: 1 1 auto; max-width: 100%; aspect-ratio: 9 / 16; }
   .d-premium-header { padding: 56px 24px 40px; }
   .d-validation__stats { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
   .d-comparison { padding: 40px 20px; }
@@ -195,7 +199,7 @@
   .d-process { flex-direction: column; gap: 40px; }
   .d-process__op { transform: none; margin: 0; }
   .d-process__col { max-width: 320px; }
-  .d-process__img { height: 320px; }
+  .d-process__img { height: auto; aspect-ratio: 9 / 16; }
   .d-process__title { font-size: 20px; margin-bottom: 20px; }
   .d-process__desc { font-size: 13px; line-height: 1.9; }
 
