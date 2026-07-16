@@ -27,7 +27,7 @@
 .d-split__media img, .d-split__media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 /* labeled diagram photo — must never crop, so it always shows in full even
    if that leaves empty space on the sides */
-.d-split__media--contain { display: flex; align-items: center; justify-content: center; }
+.d-split__media--contain { display: flex; align-items: center; justify-content: center; background: #efe7e1; }
 .d-split__media--contain img { width: 100%; height: 100%; object-fit: contain; }
 .d-split__text { flex: 0 0 50%; min-width: 0; padding: 60px 64px; display: flex; flex-direction: column; justify-content: center; background: var(--white); overflow: hidden; }
 .d-split__text--center { justify-content: center; }
