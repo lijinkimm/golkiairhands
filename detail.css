@@ -82,6 +82,10 @@
 .d-heritage-block { margin-bottom: 44px; }
 .d-heritage-block__title { font-size: 18px; font-weight: 800; margin-bottom: 18px; }
 
+/* heritage — full copy split into two sub-columns so it fits the fixed 725px section height */
+.d-heritage-columns { display: flex; gap: 28px; }
+.d-heritage-columns__col { flex: 1; min-width: 0; }
+
 /* clinical validation */
 .d-validation { min-height: 30vh; width: 100%; background: var(--bg); padding: 24px 64px; display: flex; flex-direction: column; justify-content: center; }
 .d-validation__inner { max-width: 1300px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px; align-items: center; width: 100%; }
@@ -223,6 +227,7 @@
   /* the 725px desktop constraint doesn't apply once sections stack, so restore
      comfortable reading sizes for the copy that got shrunk to fit it */
   .d-body--tight { font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
+  .d-heritage-columns { flex-direction: column; gap: 0; }
   .d-heritage-block__title { font-size: 18px !important; margin-bottom: 18px !important; }
   .d-h2--lg { font-size: 36px !important; margin-bottom: 28px !important; }
   .d-mechanism-item { padding: 22px 0; }
