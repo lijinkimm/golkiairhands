@@ -183,6 +183,7 @@
 @media (max-width: 860px) {
   .d-overview, .d-split, .d-colorpad, .d-process, .d-ba-row, .d-howto-intro { flex-direction: column; min-height: auto; height: auto; }
   .d-split--text-first-mobile .d-split__text { order: -1; }
+  .d-ba-row__images { order: -1; }
   /* each stacked block (image or text) reads as its own 9:16 mobile "card";
      text blocks use aspect-ratio as a floor, not a hard cap, so long copy can
      still grow past it instead of getting clipped */
@@ -190,11 +191,15 @@
   .d-overview__panel { min-height: calc(100vw * 16 / 9); padding: 56px 24px; }
   .d-split__media { aspect-ratio: 9 / 16; min-height: auto; }
   .d-split__text, .d-colorpad .d-split__text { min-height: calc(100vw * 16 / 9); padding: 56px 24px; flex: 1 1 auto; max-width: 100%; overflow: visible; }
+  /* short intro/tip blurbs, not full "cards" — skip the 9:16 floor so the tip
+     copy sits right under the intro instead of being pushed down a full screen */
+  .d-howto-intro .d-split__text { min-height: auto; padding: 40px 24px 8px; }
+  .d-howto-intro .d-split__text:last-child { padding-top: 0; }
   .d-split, .d-colorpad { overflow: visible; }
   .d-colorpad__grid { flex: 1 1 auto; max-width: 100%; aspect-ratio: 9 / 16; }
   .d-premium-header { padding: 56px 24px 40px; }
   .d-validation { padding: 40px 24px; }
-  .d-validation__intro { text-align: center; }
+  .d-validation__intro { text-align: left; }
   .d-validation__stats { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
   .d-stat { border-left: none; }
   .d-stat:nth-child(2n) { border-left: 1px solid var(--line-2); }
@@ -224,6 +229,6 @@
   .d-intensity__grid { grid-template-columns: repeat(2, 1fr); row-gap: 16px; }
   .d-clinical__grid { grid-template-columns: repeat(2, 1fr); row-gap: 16px; }
   .d-ba__head, .d-ba-row__text, .d-ba-row__images { padding-left: 24px; padding-right: 24px; }
-  .d-timeline__row { flex-direction: column; gap: 32px; }
+  .d-timeline__row { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 16px; row-gap: 40px; }
   .d-timeline__sep { display: none; }
 }
