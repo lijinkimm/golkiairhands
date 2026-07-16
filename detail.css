@@ -57,7 +57,7 @@
    closest fit to the 725px section height without cropping the sides */
 .d-colorpad { width: 100%; height: 725px; display: flex; flex-wrap: nowrap; background: var(--bg); overflow: hidden; }
 .d-colorpad .d-split__text { flex: 0 0 50%; max-width: 50%; }
-.d-colorpad__grid { flex: 0 0 50%; max-width: 50%; min-width: 0; overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0; }
+.d-colorpad__grid { flex: 0 0 50%; max-width: 50%; min-width: 0; height: 100%; overflow: hidden; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 0; }
 .d-colorpad__grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .d-colorpad__note-title { font-size: 18px; font-weight: 800; margin-bottom: 12px; }
 
