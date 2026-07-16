@@ -11,6 +11,13 @@
 .d-rule { border-top: 1px solid var(--line-2); margin-bottom: 28px; }
 .d-step-num { font-size: 44px; font-weight: 800; color: #3b2e26; margin-bottom: 20px; }
 
+/* overview — video left / purchase panel right */
+.d-overview { height: 100vh; width: 100%; display: flex; flex-wrap: nowrap; }
+.d-overview__media { flex: 0 0 50%; min-width: 0; position: relative; overflow: hidden; }
+.d-overview__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.d-overview__panel { flex: 0 0 50%; min-width: 0; padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; gap: 24px; background: var(--white); }
+.d-overview__desc { font-size: 12pt; color: var(--ink-3); line-height: 1.6; max-width: 420px; margin: 0; }
+
 /* generic 50/50 split section used by most detail blocks */
 .d-split { width: 100%; min-height: 100vh; display: flex; flex-wrap: nowrap; background: var(--bg); }
 .d-split__media { position: relative; flex: 0 0 50%; min-width: 0; background-size: cover; background-position: center; }
@@ -171,7 +178,9 @@
 .d-footer { width: 100%; background: var(--bg-alt); padding: 48px; text-align: center; font-size: 12px; color: var(--ink-5); }
 
 @media (max-width: 860px) {
-  .d-split, .d-colorpad, .d-process, .d-ba-row { flex-direction: column; min-height: auto; }
+  .d-overview, .d-split, .d-colorpad, .d-process, .d-ba-row { flex-direction: column; min-height: auto; height: auto; }
+  .d-overview__media { min-height: 320px; }
+  .d-overview__panel { padding: 56px 24px; }
   .d-split__media { min-height: 320px; }
   .d-split__text, .d-colorpad .d-split__text { padding: 56px 24px; flex: 1 1 auto; max-width: 100%; }
   .d-colorpad__grid { flex: 1 1 auto; max-width: 100%; aspect-ratio: 1; }
