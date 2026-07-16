@@ -194,6 +194,22 @@
   .d-comparison__head-golki, .d-comparison__head-other, .d-comparison__row-golki, .d-comparison__row-other { text-align: left; }
   .d-process { flex-direction: column; gap: 40px; }
   .d-process__op { transform: none; margin: 0; }
+  .d-process__col { max-width: 320px; }
+  .d-process__img { height: 320px; }
+  .d-process__title { font-size: 20px; margin-bottom: 20px; }
+  .d-process__desc { font-size: 13px; line-height: 1.9; }
+
+  /* the 725px desktop constraint doesn't apply once sections stack, so restore
+     comfortable reading sizes for the copy that got shrunk to fit it */
+  .d-body--tight { font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
+  .d-heritage-block__title { font-size: 18px !important; margin-bottom: 18px !important; }
+  .d-h2--lg { font-size: 36px !important; margin-bottom: 28px !important; }
+  .d-mechanism-item { padding: 22px 0; }
+  .d-mechanism-item__title { font-size: 18px; margin-bottom: 8px; }
+  .d-mechanism-item__desc { font-size: 14px; line-height: 1.6; }
+  .d-promise-item { padding: 18px 0; }
+  .d-promise-item__title { font-size: 15px; margin-bottom: 6px; }
+  .d-promise-item__desc { font-size: 13px; line-height: 1.7; }
   .d-care, .d-timeline { padding: 56px 24px; }
   .d-care-item { flex-wrap: wrap; }
   .d-intensity__grid { grid-template-columns: repeat(2, 1fr); row-gap: 16px; }
