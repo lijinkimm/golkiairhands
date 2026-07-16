@@ -49,10 +49,14 @@
 .d-value__desc { font-size: 13px; color: var(--ink-3); line-height: 1.7; }
 
 /* color & custom pad grid */
-.d-colorpad { width: 100%; height: 725px; display: flex; flex-wrap: nowrap; background: var(--bg); overflow: hidden; }
+/* source photos are tall (274x486, ~9:16) — forcing them into square-ish
+   cells at a fixed 725px section height cropped off most of each band, so
+   this section sizes itself from the grid's natural portrait aspect ratio
+   instead of the uniform 725px used elsewhere */
+.d-colorpad { width: 100%; height: auto; display: flex; flex-wrap: nowrap; background: var(--bg); overflow: hidden; }
 .d-colorpad .d-split__text { flex: 0 0 50%; max-width: 50%; }
-.d-colorpad__grid { flex: 0 0 50%; max-width: 50%; min-width: 0; overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 0; }
-.d-colorpad__grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.d-colorpad__grid { flex: 0 0 50%; max-width: 50%; min-width: 0; overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; align-self: stretch; }
+.d-colorpad__grid img { width: 100%; height: 100%; aspect-ratio: 274 / 486; object-fit: cover; display: block; }
 .d-colorpad__note-title { font-size: 18px; font-weight: 800; margin-bottom: 12px; }
 
 /* glyph list (memory features) */
