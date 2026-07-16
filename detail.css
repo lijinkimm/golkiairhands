@@ -7,6 +7,7 @@
 .d-h3 { font-size: 26px; font-weight: 700; margin: 0 0 16px; }
 .d-lead { font-size: 14px; color: var(--ink-3); line-height: 1.8; margin: 0 0 24px; }
 .d-body { font-size: 14px; color: var(--ink-3); line-height: 1.8; margin: 0 0 20px; }
+.d-body--tight { font-size: 12px; line-height: 1.45; margin-bottom: 10px; }
 .d-footnote { font-size: 12px; color: var(--ink-5); margin-bottom: 44px; }
 .d-rule { border-top: 1px solid var(--line-2); margin-bottom: 28px; }
 .d-step-num { font-size: 44px; font-weight: 800; color: #3b2e26; margin-bottom: 20px; }
@@ -21,10 +22,10 @@
 .d-howto-intro { min-height: 25vh; width: 100%; display: flex; flex-wrap: nowrap; background: var(--bg); }
 
 /* generic 50/50 split section used by most detail blocks */
-.d-split { width: 100%; min-height: 725px; display: flex; flex-wrap: nowrap; background: var(--bg); }
+.d-split { width: 100%; height: 725px; display: flex; flex-wrap: nowrap; background: var(--bg); overflow: hidden; }
 .d-split__media { position: relative; flex: 0 0 50%; min-width: 0; background-size: cover; background-position: center; }
 .d-split__media img, .d-split__media video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.d-split__text { flex: 0 0 50%; min-width: 0; padding: 100px 64px; display: flex; flex-direction: column; justify-content: center; background: var(--white); }
+.d-split__text { flex: 0 0 50%; min-width: 0; padding: 60px 64px; display: flex; flex-direction: column; justify-content: center; background: var(--white); overflow: hidden; }
 .d-split__text--center { justify-content: center; }
 .d-split__text--alt { background: var(--bg); }
 .d-split__text--white { background: var(--white); }
@@ -48,7 +49,7 @@
 .d-value__desc { font-size: 13px; color: var(--ink-3); line-height: 1.7; }
 
 /* color & custom pad grid */
-.d-colorpad { width: 100%; min-height: 725px; display: flex; flex-wrap: nowrap; background: var(--bg); overflow: hidden; }
+.d-colorpad { width: 100%; height: 725px; display: flex; flex-wrap: nowrap; background: var(--bg); overflow: hidden; }
 .d-colorpad .d-split__text { flex: 0 0 50%; max-width: 50%; }
 .d-colorpad__grid { flex: 0 0 50%; max-width: 50%; min-width: 0; overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 0; }
 .d-colorpad__grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -89,13 +90,13 @@
 .d-validation__footnote { max-width: 1300px; margin: 24px auto 0; padding-top: 20px; border-top: 1px solid var(--line); text-align: right; font-size: 12px; color: var(--ink-5); width: 100%; }
 
 /* heritage + tech -> result process */
-.d-process { min-height: 725px; width: 100%; display: flex; align-items: center; justify-content: center; padding: 80px 64px; background: var(--white); gap: 0; }
-.d-process__col { flex: 1; min-width: 0; max-width: 400px; }
-.d-process__img { width: 100%; aspect-ratio: 9/16; overflow: hidden; }
+.d-process { height: 725px; width: 100%; display: flex; align-items: center; justify-content: center; padding: 40px 64px; background: var(--white); gap: 0; overflow: hidden; }
+.d-process__col { flex: 1; min-width: 0; max-width: 240px; }
+.d-process__img { width: 100%; height: 380px; overflow: hidden; }
 .d-process__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.d-process__title { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
-.d-process__desc { font-size: 13px; color: var(--ink-3); line-height: 1.9; }
-.d-process__op { flex: 0 0 auto; font-size: 24px; color: var(--ink-5); margin: 0 32px; align-self: center; transform: translateY(-60px); }
+.d-process__title { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+.d-process__desc { font-size: 12px; color: var(--ink-3); line-height: 1.6; }
+.d-process__op { flex: 0 0 auto; font-size: 24px; color: var(--ink-5); margin: 0 24px; align-self: center; transform: translateY(-40px); }
 
 /* comparison table */
 .d-comparison { min-height: 50vh; width: 100%; background: var(--bg); display: flex; flex-direction: column; justify-content: center; padding: 60px 48px; }
@@ -111,9 +112,9 @@
 
 /* mechanism 4-step list */
 .d-mechanism-list { display: flex; flex-direction: column; }
-.d-mechanism-item { border-top: 1px solid var(--line); padding: 26px 0; }
-.d-mechanism-item__title { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
-.d-mechanism-item__desc { font-size: 15px; color: var(--ink-3); line-height: 1.6; }
+.d-mechanism-item { border-top: 1px solid var(--line); padding: 14px 0; }
+.d-mechanism-item__title { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.d-mechanism-item__desc { font-size: 12px; color: var(--ink-3); line-height: 1.45; }
 
 /* care program */
 .d-care { width: 100%; background: var(--bg); padding: 100px 64px; }
@@ -173,9 +174,9 @@
 
 /* promise list (46 years) */
 .d-promise-list { display: flex; flex-direction: column; }
-.d-promise-item { border-top: 1px solid var(--line); padding: 20px 0; }
-.d-promise-item__title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-.d-promise-item__desc { font-size: 13px; color: var(--ink-3); line-height: 1.7; }
+.d-promise-item { border-top: 1px solid var(--line); padding: 12px 0; }
+.d-promise-item__title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.d-promise-item__desc { font-size: 12px; color: var(--ink-3); line-height: 1.5; }
 
 .d-footer { width: 100%; background: var(--bg-alt); padding: 48px; text-align: center; font-size: 12px; color: var(--ink-5); }
 
