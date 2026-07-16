@@ -193,7 +193,11 @@
   .d-split, .d-colorpad { overflow: visible; }
   .d-colorpad__grid { flex: 1 1 auto; max-width: 100%; aspect-ratio: 9 / 16; }
   .d-premium-header { padding: 56px 24px 40px; }
+  .d-validation { padding: 40px 24px; }
+  .d-validation__intro { text-align: center; }
   .d-validation__stats { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
+  .d-stat { border-left: none; }
+  .d-stat:nth-child(2n) { border-left: 1px solid var(--line-2); }
   .d-comparison { padding: 40px 20px; }
   .d-comparison__head, .d-comparison__row { grid-template-columns: 1fr; text-align: left; gap: 6px; }
   .d-comparison__head-golki, .d-comparison__head-other, .d-comparison__row-golki, .d-comparison__row-other { text-align: left; }
