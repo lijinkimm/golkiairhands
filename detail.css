@@ -210,6 +210,10 @@
   .d-howto-intro .d-split__text:last-child { padding-top: 0; }
   .d-split, .d-colorpad { overflow: visible; }
   .d-colorpad__grid { flex: 1 1 auto; max-width: 100%; aspect-ratio: 9 / 16; }
+  /* the 9:16 grid squeezes each cell far narrower than the photos' own
+     ratio, so contain's letterbox padding reads as a solid gap between
+     rows; cover fills every cell edge-to-edge on mobile instead */
+  .d-colorpad__grid img { object-fit: cover; background: none; }
   .d-premium-header { padding: 56px 24px 40px; }
   .d-validation { padding: 40px 24px; }
   .d-validation__intro { text-align: left; }
