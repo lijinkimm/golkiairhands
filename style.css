@@ -304,7 +304,7 @@ p { margin: 0; }
   .hero__tm { top: 0; }
   .section-c__caption { padding: 28px; }
   .video-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-split { flex-direction: column; height: auto; margin-top: 56px; }
+  .gallery-split { flex-direction: column; height: auto; }
   .gallery-split__text, .gallery-split__grid { flex: 1 1 auto; max-width: 100%; padding: 40px 24px; }
   .gallery-split__grid { height: auto; aspect-ratio: 9 / 16; padding: 0; }
   .section-f__left, .section-g__right { padding: 48px 28px; }
