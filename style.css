@@ -146,7 +146,7 @@ p { margin: 0; }
 /* ===== section D — heritage video ===== */
 .section-d {
   position: relative; height: 690px; width: 100%; overflow: hidden;
-  background: var(--ink); margin-top: 132px; color: var(--white);
+  background: var(--ink); color: var(--white);
 }
 .section-d__video { position: absolute !important; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .section-d__heading {
