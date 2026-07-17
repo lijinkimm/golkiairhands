@@ -211,6 +211,9 @@
      copy sits right under the intro instead of being pushed down a full screen */
   .d-howto-intro .d-split__text { min-height: auto; padding: 40px 24px 8px; }
   .d-howto-intro .d-split__text:last-child { padding-top: 0; }
+  /* how-to-wear numbered steps are short instructions, not full "cards" —
+     skip the 9:16 floor/centering so each step's text sits right under its photo */
+  .d-split__text:has(.d-step-num) { min-height: auto; justify-content: flex-start; }
   /* these are visibility:hidden spacers that only matter for desktop's
      side-by-side column alignment; on mobile they still reserve their
      full height and show up as a large blank gap, so drop them entirely */
