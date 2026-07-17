@@ -60,7 +60,7 @@
 .d-colorpad__grid { flex: 0 0 50%; max-width: 50%; min-width: 0; height: 100%; overflow: hidden; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 0; }
 /* contain (not cover) so each photo's own negative space/framing is kept intact
    instead of being cropped tight; background matches the photos' own studio backdrop */
-.d-colorpad__grid img { width: 100%; height: 100%; object-fit: contain; display: block; background: #b6a89e; }
+.d-colorpad__grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .d-colorpad__note-title { font-size: 18px; font-weight: 800; margin-bottom: 12px; }
 
 /* glyph list (memory features) */
@@ -210,10 +210,6 @@
   .d-howto-intro .d-split__text:last-child { padding-top: 0; }
   .d-split, .d-colorpad { overflow: visible; }
   .d-colorpad__grid { flex: 1 1 auto; max-width: 100%; aspect-ratio: 9 / 16; }
-  /* the 9:16 grid squeezes each cell far narrower than the photos' own
-     ratio, so contain's letterbox padding reads as a solid gap between
-     rows; cover fills every cell edge-to-edge on mobile instead */
-  .d-colorpad__grid img { object-fit: cover; background: none; }
   .d-premium-header { padding: 56px 24px 40px; }
   .d-validation { padding: 40px 24px; }
   .d-validation__intro { text-align: left; }
