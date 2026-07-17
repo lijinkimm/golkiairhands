@@ -183,7 +183,7 @@ p { margin: 0; }
 .section-b__outro { max-width: 800px; margin: 40px auto 0; font-size: 13px; color: var(--ink-3); line-height: 1.6; text-align: center; }
 
 /* ===== full-bleed video ===== */
-.section-full-video { position: relative; width: 100%; aspect-ratio: 1264/720; overflow: hidden; background: var(--bg); }
+.section-full-video { position: relative; width: 100%; height: 690px; overflow: hidden; background: var(--bg); }
 .section-full-video__video { position: absolute !important; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .section-full-video__heading {
   position: absolute; left: 23px; top: 25px; width: 260px; z-index: 2;
@@ -309,8 +309,4 @@ p { margin: 0; }
   .gallery-split__grid { height: auto; aspect-ratio: 9 / 16; padding: 0; }
   .section-f__left, .section-g__right { padding: 48px 28px; }
   .section-j { padding: 60px 20px 30px; }
-  /* aspect-ratio makes this section too short on narrow viewports to fit the
-     absolutely-positioned overlay text (it's tuned for desktop width), so give it
-     a fixed height like section D instead once the screen gets narrow */
-  .section-full-video { aspect-ratio: auto; height: 690px; }
 }
