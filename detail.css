@@ -194,7 +194,8 @@
 
 @media (max-width: 860px) {
   .d-overview, .d-split, .d-colorpad, .d-process, .d-ba-row, .d-howto-intro { flex-direction: column; min-height: auto; height: auto; }
-  .d-split--text-first-mobile .d-split__text { order: -1; }
+  /* image/media always first, text follows, across every split section */
+  .d-split__media, .d-colorpad__grid { order: -1; }
   .d-ba-row__images { order: -1; }
   /* each stacked block (image or text) reads as its own 9:16 mobile "card";
      text blocks use aspect-ratio as a floor, not a hard cap, so long copy can
