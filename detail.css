@@ -138,7 +138,7 @@
 .d-care-item__badge-label { font-size: 10px; letter-spacing: .06em; opacity: .75; }
 .d-care-item__badge-n { font-size: 24px; font-weight: 800; }
 .d-care-item__title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.d-care-item__desc { font-size: 13px; color: var(--ink-3); line-height: 1.6; }
+.d-care-item__desc { font-size: 13px; color: var(--ink-3); line-height: 1.6; white-space: pre-line; }
 .d-care-item__time-label { font-size: 12px; color: var(--ink-5); margin-bottom: 4px; }
 .d-care-item__time { font-size: 15px; font-weight: 700; }
 .d-intensity { margin-top: 16px; background: var(--white); padding: 32px; }

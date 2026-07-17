@@ -110,11 +110,15 @@
 
   // ---------- care programs + intensity ----------
   const carePrograms = [
-    { n: '01', title: '리프팅 케어', desc: '처진 피부와 윤곽 라인을 끌어올려 탄력 있고 또렷한 V라인으로 케어', time: '15 min' },
-    { n: '02', title: '슬리밍 케어', desc: '부기와 노폐물을 케어하여 갸름하고 슬림한 페이스 라인 완성', time: '15 min' },
-    { n: '03', title: '릴렉싱 케어', desc: '긴장을 풀어주고 얼굴 근육의 피로를 완화하여 편안한 이완 케어', time: '15 min' },
+    { n: '01', title: '리프팅 케어', desc: '처진 피부와 윤곽 라인을 끌어올려 탄력 있고 또렷한 V라인으로 케어', time: '15 min',
+      descMobile: '처진 피부와\n윤곽 라인을 끌어올려\n탄력 있고 또렷한\nV라인으로 케어' },
+    { n: '02', title: '슬리밍 케어', desc: '부기와 노폐물을 케어하여 갸름하고 슬림한 페이스 라인 완성', time: '15 min',
+      descMobile: '부기와 노폐물을\n케어하여\n갸름하고 슬림한\n페이스 라인 완성' },
+    { n: '03', title: '릴렉싱 케어', desc: '긴장을 풀어주고 얼굴 근육의 피로를 완화하여 편안한 이완 케어', time: '15 min',
+      descMobile: '긴장을 풀어주고\n얼굴 근육의\n피로를 완화하여\n편안한 이완 케어' },
     { n: '04', title: '두피 밸런스 케어', desc: '두피의 혈액순환을 촉진하고 탄력 있는 두피 환경으로 케어', time: '15 min' },
-    { n: '05', title: '토탈 케어', desc: '리프팅+슬리밍+릴렉싱을 결합한 프리미엄 통합 케어 프로그램', time: '20 min' },
+    { n: '05', title: '토탈 케어', desc: '리프팅+슬리밍+릴렉싱을 결합한 프리미엄 통합 케어 프로그램', time: '20 min',
+      descMobile: '리프팅+슬리밍+\n릴렉싱을 결합한\n프리미엄 통합\n케어 프로그램' },
   ];
   document.getElementById('careProgramList').innerHTML = carePrograms.map((p) => `
     <div class="d-care-item">
@@ -124,7 +128,8 @@
       </div>
       <div style="flex:1;min-width:0;">
         <div class="d-care-item__title">${escapeHtml(p.title)}</div>
-        <div class="d-care-item__desc">${escapeHtml(p.desc)}</div>
+        <div class="d-care-item__desc d-colorpad__desc--desktop">${escapeHtml(p.desc)}</div>
+        <div class="d-care-item__desc d-colorpad__desc--mobile">${escapeHtml(p.descMobile || p.desc)}</div>
       </div>
       <div style="flex:0 0 auto;text-align:right;">
         <div class="d-care-item__time-label">권장 시간</div>
