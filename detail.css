@@ -211,6 +211,11 @@
      copy sits right under the intro instead of being pushed down a full screen */
   .d-howto-intro .d-split__text { min-height: auto; padding: 40px 24px 8px; }
   .d-howto-intro .d-split__text:last-child { padding-top: 0; }
+  /* these are visibility:hidden spacers that only matter for desktop's
+     side-by-side column alignment; on mobile they still reserve their
+     full height and show up as a large blank gap, so drop them entirely */
+  .d-howto-intro .d-split__text:last-child .d-kicker,
+  .d-howto-intro .d-split__text:last-child .d-h2 { display: none; }
   .d-split, .d-colorpad { overflow: visible; }
   .d-colorpad__grid { flex: 1 1 auto; max-width: 100%; aspect-ratio: 9 / 16; }
   .d-premium-header { padding: 56px 24px 40px; }
