@@ -17,8 +17,10 @@
 
   // ---------- target & effect ----------
   const targetEffects = [
-    { n: '1', title: '하악(턱) 라인 케어', desc: '턱선 부위의 부종을 완화하고 흐트러진 라인을 정돈하여\n날렵한 V라인을 완성합니다.' },
-    { n: '2', title: '광대 & 중안면부 케어', desc: '광대 주변의 근육과 지방을 압박하여 볼륨을 정리하고\n탄력 있는 입체감을 선사합니다.' },
+    { n: '1', title: '하악(턱) 라인 케어', desc: '턱선 부위의 부종을 완화하고 흐트러진 라인을 정돈하여\n날렵한 V라인을 완성합니다.',
+      descMobile: '턱선 부위의 부종을 완화하고\n흐트러진 라인을 정돈하여\n날렵한 V라인을 완성합니다.' },
+    { n: '2', title: '광대 & 중안면부 케어', desc: '광대 주변의 근육과 지방을 압박하여 볼륨을 정리하고\n탄력 있는 입체감을 선사합니다.',
+      descMobile: '광대 주변의 근육과 지방을 압박하여\n볼륨을 정리하고\n탄력 있는 입체감을 선사합니다.' },
     { n: '3', title: '두피 & 상악 케어', desc: '두피의 혈자리를 자극하여 혈액순환을 촉진하고\n상악 라인까지 이어지는 전체 순환을 돕습니다.' },
   ];
   document.getElementById('targetEffectList').innerHTML = targetEffects.map((t) => `
@@ -26,7 +28,8 @@
       <div class="d-numbered-item__n">${t.n}</div>
       <div>
         <div class="d-numbered-item__title">${escapeHtml(t.title)}</div>
-        <div class="d-numbered-item__desc">${escapeHtml(t.desc)}</div>
+        <div class="d-numbered-item__desc d-colorpad__desc--desktop">${escapeHtml(t.desc)}</div>
+        <div class="d-numbered-item__desc d-colorpad__desc--mobile">${escapeHtml(t.descMobile || t.desc)}</div>
       </div>
     </div>
   `).join('');
