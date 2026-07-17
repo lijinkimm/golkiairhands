@@ -126,7 +126,7 @@
 .d-mechanism-list { display: flex; flex-direction: column; }
 .d-mechanism-item { border-top: 1px solid var(--line); padding: 14px 0; }
 .d-mechanism-item__title { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-.d-mechanism-item__desc { font-size: 12px; color: var(--ink-3); line-height: 1.45; }
+.d-mechanism-item__desc { font-size: 12px; color: var(--ink-3); line-height: 1.45; white-space: pre-line; }
 
 /* care program */
 .d-care { width: 100%; background: var(--bg); padding: 100px 64px; }
