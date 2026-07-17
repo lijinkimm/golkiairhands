@@ -338,6 +338,7 @@ How to wear it ㅣ 착용법
   // ---------- accordions (F / G / FAQ) ----------
   function buildAccordion(containerId, items, titleKey, bodyKey) {
     const container = document.getElementById(containerId);
+    if (!container) return;
     items.forEach((item, idx) => {
       const row = document.createElement('div');
       row.className = 'accordion__item' + (item.open ? ' is-open' : '');
