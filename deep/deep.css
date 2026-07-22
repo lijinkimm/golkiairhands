@@ -203,8 +203,7 @@
      containing block for that is the padding EDGE (same size as the
      border box), so parent padding alone doesn't inset them. Set the
      gutter directly on the media element instead. */
-  .dp-split__media img, .dp-split__media video,
-  .dp-full-video video {
+  .dp-split__media img, .dp-split__media video {
     left: 5mm; right: 5mm; width: calc(100% - 10mm);
     top: 7.5%; height: 85%;
   }
@@ -251,13 +250,14 @@
   .dp-section-d__eyebrow-top { top: 66%; left: 20px; width: calc(100% - 40px); font-size: 13px; }
   .dp-section-d__eyebrow-bottom { top: 71%; left: 20px; width: calc(100% - 40px); font-size: 13px; }
   .dp-section-d__body { top: 80%; left: 20px; width: calc(100% - 40px); font-size: 11px; line-height: 1.5; }
-  /* .dp-full-video was sized with vh, which rendered too short on real
-     mobile Safari to fit the overlay text — use a generous fixed
-     height instead, with % positions so the text sits safely inside */
-  .dp-full-video { height: 640px; }
-  .dp-full-video__heading { top: 6%; width: calc(100% - 46px); font-size: 17px; }
-  .dp-full-video__eyebrow-top { top: 65%; font-size: 14px; }
-  .dp-full-video__body { top: 71%; width: calc(100% - 40px); font-size: 12px; }
+  /* .dp-full-video: match the 5:5 box used everywhere else, fill the
+     video edge-to-edge (no gutter), and use % text offsets sized for
+     the square box */
+  .dp-full-video { height: auto; aspect-ratio: 1 / 1; }
+  .dp-full-video video { left: 0; right: 0; width: 100%; top: 0; height: 100%; }
+  .dp-full-video__heading { top: 5%; left: 20px; width: calc(100% - 40px); font-size: 17px; }
+  .dp-full-video__eyebrow-top { top: 66%; left: 20px; font-size: 13px; }
+  .dp-full-video__body { top: 72%; left: 20px; width: calc(100% - 40px); font-size: 11px; }
   .dp-reviews, .dp-faq { padding: 56px 24px; }
   .dp-footer { padding: 60px 20px 30px; }
 
