@@ -228,7 +228,7 @@
   .dp-comparison__head { padding: 0; }
   .dp-comparison__head-deep, .dp-comparison__head-other, .dp-comparison-row__deep, .dp-comparison-row__other { text-align: left; }
   .dp-safety__grid { grid-template-columns: 1fr; }
-  .dp-ingredient-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .dp-ingredient-row { flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 0; padding-right: 0; }
   .dp-ingredient-row__product, .dp-ingredient-row__key { flex: 1 1 auto; }
   .dp-ingredient-frame__panel { max-width: 100%; padding: 40px 24px; }
   .dp-full-video__heading, .dp-section-d__heading { font-size: 22px; }
