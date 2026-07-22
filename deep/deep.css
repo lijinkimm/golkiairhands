@@ -241,7 +241,7 @@
   .dp-header,
   .dp-hero, .dp-hero__slide,
   .dp-split, .dp-split__media, .dp-split__text,
-  .dp-fact-box,
+  .dp-fact-box--card,
   .dp-ritual, .dp-routines, .dp-comparison, .dp-comparison-row,
   .dp-ingredient-table, .dp-full-video, .dp-safety, .dp-safety-item,
   .dp-reviews, .dp-faq, .dp-footer {
@@ -253,5 +253,5 @@
   .dp-split__text--red .dp-h2,
   .dp-split__text--red .dp-tagline { color: var(--ink) !important; }
   .dp-split__text--red .dp-body { color: var(--ink-3) !important; }
-  .dp-fact-box { padding-left: 0; padding-right: 0; }
+  .dp-fact-box--card { padding-left: 0; padding-right: 0; }
 }
