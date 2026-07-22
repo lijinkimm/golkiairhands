@@ -53,7 +53,7 @@
 /* mobile: swipeable 5-image carousel, hidden on desktop */
 .dp-hero__carousel { display: none; }
 .dp-hero__slide { flex: 0 0 100%; position: relative; scroll-snap-align: center; scroll-snap-stop: always; }
-.dp-hero__slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.dp-hero__slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ===== how to use ritual table ===== */
 .dp-ritual { width: 100%; background: var(--bg); padding: 100px 64px; }
