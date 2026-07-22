@@ -209,6 +209,7 @@
     top: 7.5%; height: 85%;
   }
   .dp-hero__slide img { position: absolute; top: 7.5%; height: 85%; left: 0; width: 100%; }
+  .dp-split__media--contain { background: var(--white) !important; }
   .dp-split__media--contain img { object-fit: contain; }
   .dp-ingredient-frame { padding: 0 5mm; box-sizing: border-box; background-color: var(--ink); background-clip: content-box; }
   .dp-split__text,
