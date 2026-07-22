@@ -194,7 +194,7 @@
   .dp-split, .dp-split--60-40, .dp-split--40-60, .dp-split--65-35, .dp-split--35-65, .dp-split--70-30 {
     flex-direction: column; min-height: auto; height: auto;
   }
-  .dp-split__media { order: -1; aspect-ratio: 9 / 16; min-height: auto; }
+  .dp-split__media { order: -1; aspect-ratio: 1 / 1; min-height: auto; }
   .dp-split__media,
   .dp-split--60-40 .dp-split__media, .dp-split--40-60 .dp-split__media,
   .dp-split--65-35 .dp-split__media, .dp-split--35-65 .dp-split__media,
