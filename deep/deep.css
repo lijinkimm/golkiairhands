@@ -204,7 +204,7 @@
      border box), so parent padding alone doesn't inset them. Set the
      gutter directly on the media element instead. */
   .dp-split__media img, .dp-split__media video,
-  .dp-full-video video, .dp-section-d video {
+  .dp-full-video video {
     left: 5mm; right: 5mm; width: calc(100% - 10mm);
     top: 7.5%; height: 85%;
   }
@@ -231,7 +231,16 @@
   .dp-ingredient-row { flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 0; padding-right: 0; }
   .dp-ingredient-row__product, .dp-ingredient-row__key { flex: 1 1 auto; }
   .dp-ingredient-frame__panel { max-width: 100%; padding: 40px 24px; }
-  .dp-section-d__heading { font-size: 22px; }
+  /* .dp-section-d: match the 5:5 box used everywhere else, fill the
+     video edge-to-edge (no gutter — the black section background was
+     showing through as bars around it), and use % text offsets sized
+     for the shorter square box instead of the old 690px-tall layout */
+  .dp-section-d { height: auto; aspect-ratio: 1 / 1; }
+  .dp-section-d video { left: 0; right: 0; width: 100%; top: 0; height: 100%; }
+  .dp-section-d__heading { top: 5%; left: 20px; width: calc(100% - 40px); font-size: 20px; }
+  .dp-section-d__eyebrow-top { top: 66%; left: 20px; width: calc(100% - 40px); font-size: 13px; }
+  .dp-section-d__eyebrow-bottom { top: 71%; left: 20px; width: calc(100% - 40px); font-size: 13px; }
+  .dp-section-d__body { top: 80%; left: 20px; width: calc(100% - 40px); font-size: 11px; line-height: 1.5; }
   /* .dp-full-video was sized with vh, which rendered too short on real
      mobile Safari to fit the overlay text — use a generous fixed
      height instead, with % positions so the text sits safely inside */
