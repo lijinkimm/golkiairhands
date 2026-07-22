@@ -231,14 +231,14 @@
   .dp-ingredient-row { flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 0; padding-right: 0; }
   .dp-ingredient-row__product, .dp-ingredient-row__key { flex: 1 1 auto; }
   .dp-ingredient-frame__panel { max-width: 100%; padding: 40px 24px; }
-  .dp-full-video__heading, .dp-section-d__heading { font-size: 22px; }
+  .dp-section-d__heading { font-size: 22px; }
   /* .dp-full-video was sized with vh, which rendered too short on real
      mobile Safari to fit the overlay text — use a generous fixed
      height instead, with % positions so the text sits safely inside */
   .dp-full-video { height: 640px; }
-  .dp-full-video__heading { top: 6%; width: calc(100% - 46px); }
-  .dp-full-video__eyebrow-top { top: 65%; }
-  .dp-full-video__body { top: 71%; width: calc(100% - 40px); }
+  .dp-full-video__heading { top: 6%; width: calc(100% - 46px); font-size: 17px; }
+  .dp-full-video__eyebrow-top { top: 65%; font-size: 14px; }
+  .dp-full-video__body { top: 71%; width: calc(100% - 40px); font-size: 12px; }
   .dp-reviews, .dp-faq { padding: 56px 24px; }
   .dp-footer { padding: 60px 20px 30px; }
 
