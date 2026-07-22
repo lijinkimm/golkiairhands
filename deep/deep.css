@@ -253,4 +253,5 @@
   .dp-split__text--red .dp-h2,
   .dp-split__text--red .dp-tagline { color: var(--ink) !important; }
   .dp-split__text--red .dp-body { color: var(--ink-3) !important; }
+  .dp-fact-box { padding-left: 0; padding-right: 0; }
 }
