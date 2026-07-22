@@ -6,6 +6,33 @@ document.addEventListener('DOMContentLoaded', () => {
     return div.innerHTML;
   }
 
+  // ---------- hero carousel: loop back to slide 1 after the last slide ----------
+  // append a clone of slide 1 at the end; once the user settles on it
+  // (visually identical to slide 1), silently jump back to the real
+  // slide 1 with no animation so the loop reads as seamless
+  (() => {
+    const carousel = document.querySelector('.dp-hero__carousel');
+    if (!carousel) return;
+    const slides = carousel.querySelectorAll('.dp-hero__slide');
+    if (!slides.length) return;
+    const clone = slides[0].cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    carousel.appendChild(clone);
+    const total = slides.length + 1;
+    let settleTimer;
+    carousel.addEventListener('scroll', () => {
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => {
+        const slideWidth = carousel.clientWidth;
+        if (!slideWidth) return;
+        const index = Math.round(carousel.scrollLeft / slideWidth);
+        if (index >= total - 1) {
+          carousel.scrollTo({ left: 0, behavior: 'auto' });
+        }
+      }, 120);
+    });
+  })();
+
   // ---------- force-start every video (mobile browsers can silently
   // ignore the autoplay attribute; retry play() until it sticks) ----------
   document.querySelectorAll('video').forEach((el) => {
