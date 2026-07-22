@@ -75,10 +75,12 @@
 
 /* ===== full-bg ingredient frame (Azulene & Marine) ===== */
 .dp-ingredient-frame {
-  position: relative; width: 100%; min-height: 60vh;
-  background-size: cover; background-position: center; overflow: hidden;
+  position: relative; width: 100%; min-height: 60vh; overflow: hidden;
 }
-.dp-ingredient-frame__panel { position: absolute; left: 0; bottom: 0; padding: 64px; max-width: 640px; }
+.dp-ingredient-frame__media {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+}
+.dp-ingredient-frame__panel { position: absolute; left: 0; bottom: 0; padding: 64px; max-width: 640px; z-index: 1; }
 
 /* ===== routine by goal grid ===== */
 .dp-routines { width: 100%; background: var(--bg); padding: 100px 64px; }
@@ -208,7 +210,14 @@
     top: 7.5%; height: 85%;
   }
   .dp-hero__slide img { position: absolute; top: 0; height: 100%; left: 0; width: 100%; }
-  .dp-ingredient-frame { padding: 0 5mm; box-sizing: border-box; background-color: var(--ink); background-clip: content-box; min-height: 90vh; }
+  /* Azulene & Marine: 5:5 image on top, text stacked below (no
+     overlay) instead of the desktop full-bg-with-caption layout */
+  .dp-ingredient-frame { display: flex; flex-direction: column; min-height: auto; }
+  .dp-ingredient-frame__media { position: relative; inset: auto; width: 100%; aspect-ratio: 1 / 1; }
+  .dp-ingredient-frame__panel {
+    position: static; max-width: 100%; width: 100%;
+    padding: 0 24px 32px; background: var(--white); box-sizing: border-box;
+  }
   .dp-ingredient-frame__panel,
   .dp-ingredient-frame__panel .dp-kicker,
   .dp-ingredient-frame__panel .dp-h2,
@@ -239,7 +248,6 @@
   .dp-safety-item { padding-left: 0; padding-right: 0; }
   .dp-ingredient-row { flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 0; padding-right: 0; }
   .dp-ingredient-row__product, .dp-ingredient-row__key { flex: 1 1 auto; }
-  .dp-ingredient-frame__panel { max-width: 100%; padding: 40px 24px; }
   /* .dp-section-d: match the 5:5 box used everywhere else, fill the
      video edge-to-edge (no gutter — the black section background was
      showing through as bars around it), and use % text offsets sized
