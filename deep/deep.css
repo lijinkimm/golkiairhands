@@ -46,8 +46,11 @@
 .dp-stat__label { font-size: 12px; color: var(--ink-3); margin-top: 6px; }
 
 /* ===== hero full-frame image ===== */
-.dp-hero { position: relative; width: 100%; height: 92vh; overflow: hidden; background: var(--ink); }
-.dp-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* desktop: original full-frame image at its natural aspect ratio, no crop/overlay */
+.dp-hero { position: relative; width: 100%; overflow: hidden; }
+.dp-hero__img--desktop { width: 100%; height: auto; display: block; }
+.dp-hero__img--mobile { display: none; }
+.dp-hero__float { display: none; }
 
 /* free-floating hero text — three independent drift loops so the
    text reads as detached from the photo instead of printed on it */
@@ -220,6 +223,9 @@
   .dp-header { padding: 16px 20px; }
   .dp-nav { gap: 14px; font-size: 10px; }
   .dp-hero { height: 78vh; }
+  .dp-hero__img--desktop { display: none; }
+  .dp-hero__img--mobile { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .dp-hero__float { display: block; }
   .dp-hero__float--a { top: 10%; left: 5%; }
   .dp-hero__float--b { bottom: 8%; left: 5%; right: 5%; max-width: none; }
   .dp-hero__float--c { top: 22%; right: 5%; }
