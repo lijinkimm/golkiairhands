@@ -6,6 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
     return div.innerHTML;
   }
 
+  // ---------- force-start every video (mobile browsers can silently
+  // ignore the autoplay attribute; retry play() until it sticks) ----------
+  document.querySelectorAll('video').forEach((el) => {
+    el.muted = true;
+    el.playsInline = true;
+    el.loop = true;
+    const tryPlay = () => {
+      const p = el.play();
+      if (p && p.catch) p.catch(() => setTimeout(tryPlay, 300));
+    };
+    if (el.readyState >= 2) tryPlay();
+    else el.addEventListener('loadeddata', tryPlay, { once: true });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && el.paused) tryPlay();
+    });
+  });
+
   // ---------- smooth scroll for nav/footer links ----------
   document.querySelectorAll('[data-scroll]').forEach((el) => {
     el.addEventListener('click', (e) => {
