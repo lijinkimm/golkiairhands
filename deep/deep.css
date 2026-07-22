@@ -182,7 +182,7 @@
 @media (max-width: 860px) {
   .dp-header { padding: 16px 20px; }
   .dp-nav { gap: 14px; font-size: 10px; }
-  .dp-hero { height: 78vh; }
+  .dp-hero { height: auto; aspect-ratio: 9 / 16; }
   .dp-hero__img--desktop { display: none; }
   .dp-hero__carousel {
     display: flex; width: 100%; height: 100%;
@@ -190,6 +190,7 @@
     -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
   .dp-hero__carousel::-webkit-scrollbar { display: none; }
+  .dp-hero__slide { aspect-ratio: 9 / 16; height: 100%; }
   .dp-split, .dp-split--60-40, .dp-split--40-60, .dp-split--65-35, .dp-split--35-65, .dp-split--70-30 {
     flex-direction: column; min-height: auto; height: auto;
   }
