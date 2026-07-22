@@ -194,12 +194,19 @@
   .dp-split, .dp-split--60-40, .dp-split--40-60, .dp-split--65-35, .dp-split--35-65, .dp-split--70-30 {
     flex-direction: column; min-height: auto; height: auto;
   }
-  .dp-split__media { order: -1; aspect-ratio: 9 / 16; min-height: auto; padding: 0 5mm; box-sizing: border-box; }
+  .dp-split__media { order: -1; aspect-ratio: 9 / 16; min-height: auto; }
   .dp-split__media,
   .dp-split--60-40 .dp-split__media, .dp-split--40-60 .dp-split__media,
   .dp-split--65-35 .dp-split__media, .dp-split--35-65 .dp-split__media,
   .dp-split--70-30 .dp-split__media { flex: 1 1 auto; }
-  .dp-full-video, .dp-section-d { padding: 0 5mm; box-sizing: border-box; }
+  /* these are position:absolute+inset:0 replaced elements — the
+     containing block for that is the padding EDGE (same size as the
+     border box), so parent padding alone doesn't inset them. Set the
+     gutter directly on the media element instead. */
+  .dp-split__media img, .dp-split__media video,
+  .dp-full-video video, .dp-section-d video {
+    left: 5mm; right: 5mm; width: calc(100% - 10mm);
+  }
   .dp-ingredient-frame { padding: 0 5mm; box-sizing: border-box; background-color: var(--ink); background-clip: content-box; }
   .dp-split__text,
   .dp-split--60-40 .dp-split__text, .dp-split--40-60 .dp-split__text,
