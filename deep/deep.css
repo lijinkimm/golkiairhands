@@ -202,7 +202,10 @@
   .dp-split__text,
   .dp-split--60-40 .dp-split__text, .dp-split--40-60 .dp-split__text,
   .dp-split--65-35 .dp-split__text, .dp-split--35-65 .dp-split__text,
-  .dp-split--70-30 .dp-split__text { flex: 1 1 auto; padding: 56px 24px; }
+  .dp-split--70-30 .dp-split__text {
+    flex: 1 1 auto; padding: 56px 24px 32px;
+    justify-content: flex-start; padding-top: 5mm;
+  }
   .dp-h2 { font-size: 26px; }
   .dp-stat-row { flex-wrap: wrap; gap: 24px; }
   .dp-ritual, .dp-routines, .dp-comparison, .dp-ingredient-table, .dp-safety { padding: 56px 24px; }
