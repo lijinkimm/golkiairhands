@@ -232,6 +232,12 @@
   .dp-ingredient-row__product, .dp-ingredient-row__key { flex: 1 1 auto; }
   .dp-ingredient-frame__panel { max-width: 100%; padding: 40px 24px; }
   .dp-full-video__heading, .dp-section-d__heading { font-size: 22px; }
+  /* .dp-full-video is sized with vh, which can resolve smaller than
+     expected under Safari's dynamic toolbar — use % positions instead
+     of fixed px so the overlay text always stays within the box */
+  .dp-full-video__heading { top: 5%; width: calc(100% - 46px); }
+  .dp-full-video__eyebrow-top { top: 72%; }
+  .dp-full-video__body { top: 79%; width: calc(100% - 40px); }
   .dp-reviews, .dp-faq { padding: 56px 24px; }
   .dp-footer { padding: 60px 20px 30px; }
 
