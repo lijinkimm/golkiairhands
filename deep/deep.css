@@ -190,7 +190,7 @@
     -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
   .dp-hero__carousel::-webkit-scrollbar { display: none; }
-  .dp-hero__slide { aspect-ratio: auto; height: 100%; padding: 0 5mm; background: var(--bg); box-sizing: border-box; }
+  .dp-hero__slide { aspect-ratio: auto; height: 100%; background: var(--bg); box-sizing: border-box; }
   .dp-split, .dp-split--60-40, .dp-split--40-60, .dp-split--65-35, .dp-split--35-65, .dp-split--70-30 {
     flex-direction: column; min-height: auto; height: auto;
   }
