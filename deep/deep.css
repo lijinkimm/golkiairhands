@@ -206,7 +206,9 @@
   .dp-split__media img, .dp-split__media video,
   .dp-full-video video, .dp-section-d video {
     left: 5mm; right: 5mm; width: calc(100% - 10mm);
+    top: 7.5%; height: 85%;
   }
+  .dp-hero__slide img { position: absolute; top: 7.5%; height: 85%; left: 0; width: 100%; }
   .dp-ingredient-frame { padding: 0 5mm; box-sizing: border-box; background-color: var(--ink); background-clip: content-box; }
   .dp-split__text,
   .dp-split--60-40 .dp-split__text, .dp-split--40-60 .dp-split__text,
