@@ -234,4 +234,23 @@
   .dp-full-video__heading, .dp-section-d__heading { font-size: 22px; }
   .dp-reviews, .dp-faq { padding: 56px 24px; }
   .dp-footer { padding: 60px 20px 30px; }
+
+  /* mobile-only: flatten every section/panel background to white
+     (dp-section-d is video-backed and dp-ingredient-frame is a photo
+     background, so both are left alone) */
+  .dp-header,
+  .dp-hero, .dp-hero__slide,
+  .dp-split, .dp-split__media, .dp-split__text,
+  .dp-fact-box,
+  .dp-ritual, .dp-routines, .dp-comparison, .dp-comparison-row,
+  .dp-ingredient-table, .dp-full-video, .dp-safety, .dp-safety-item,
+  .dp-reviews, .dp-faq, .dp-footer {
+    background: var(--white) !important;
+  }
+  .dp-split__text { color: var(--ink) !important; }
+  .dp-split__text--red { color: var(--ink) !important; }
+  .dp-split__text--red .dp-kicker { color: #8a6a4a !important; }
+  .dp-split__text--red .dp-h2,
+  .dp-split__text--red .dp-tagline { color: var(--ink) !important; }
+  .dp-split__text--red .dp-body { color: var(--ink-3) !important; }
 }
