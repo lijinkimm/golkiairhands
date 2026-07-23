@@ -216,7 +216,7 @@
   .dp-ingredient-frame__media { position: relative; inset: auto; width: 100%; aspect-ratio: 1 / 1; }
   .dp-ingredient-frame__panel {
     position: static; max-width: 100%; width: 100%;
-    padding: 0 24px 32px; background: var(--white); box-sizing: border-box;
+    padding: 5mm 24px 32px; background: var(--white); box-sizing: border-box;
   }
   .dp-ingredient-frame__panel,
   .dp-ingredient-frame__panel .dp-kicker,
