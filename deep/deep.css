@@ -246,7 +246,7 @@
   .dp-comparison__head-deep, .dp-comparison__head-other, .dp-comparison-row__deep, .dp-comparison-row__other { text-align: left; }
   .dp-safety__grid { grid-template-columns: 1fr; gap: 8px; }
   .dp-safety-item { padding: 12px 0; }
-  .dp-ingredient-row { flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 0; padding-right: 0; }
+  .dp-ingredient-row { flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 16px; padding-right: 16px; }
   .dp-ingredient-row__product, .dp-ingredient-row__key { flex: 1 1 auto; }
   /* .dp-section-d: match the 5:5 box used everywhere else, fill the
      video edge-to-edge (no gutter — the black section background was
