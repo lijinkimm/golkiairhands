@@ -118,10 +118,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- comparison table ----------
   const comparisonRows = [
-    { label: '관리 원리', deep: '40년 골기 테라피 기반 단계별 설계', general: '단일 컨셉 위주', single: '단일 성분 집중' },
-    { label: '관리 후 케어', deep: '쿨링 + 멜팅 픽싱까지 단계적 설계', general: '단일 크림 위주', single: '해당 없음' },
-    { label: '핵심 원료', deep: '해양 추출물 성분', general: '일반 보습 성분', single: '단일 유효 성분' },
-    { label: '사용 목적', deep: '관리 전~후 전체 리추얼', general: '일상 스킨케어', single: '특정 고민 집중' },
+    {
+      label: '관리 원리 · 관리 후 케어',
+      deep: '40년 골기 테라피 기반 단계별 설계\n쿨링 + 멜팅 픽싱까지 단계적 설계',
+      general: '단일 컨셉 위주\n단일 크림 위주',
+      single: '단일 성분 집중\n해당 없음',
+    },
+    {
+      label: '핵심 원료 · 사용 목적',
+      deep: '해양 추출물 성분\n관리 전~후 전체 리추얼',
+      general: '일반 보습 성분\n일상 스킨케어',
+      single: '단일 유효 성분\n특정 고민 집중',
+    },
     { label: '탄력 기술', deep: 'DEEP COLLAGEN RECOVERY\n나노 콜라겐', general: '일반 콜라겐 배합', single: '해당 없음' },
   ];
   const comparisonRowsEl = document.getElementById('comparisonRows');
