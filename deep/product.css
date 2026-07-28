@@ -24,6 +24,17 @@
 }
 .dp-numbered-line__text { font-size: 14px; color: var(--ink-3); line-height: 1.5; }
 
+/* ---- 2-col "way" comparison block (e.g. 2-way boosting ritual) ---- */
+.dp-ways-section { width: 100%; padding: 100px 64px; background: var(--bg); }
+.dp-ways-section__inner { max-width: 1300px; margin: 0 auto; }
+.dp-ways-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; row-gap: 48px; }
+.dp-way__label { font-size: 13px; letter-spacing: .06em; color: #8a6a4a; font-weight: 700; margin-bottom: 14px; }
+.dp-way__title { font-size: 20px; font-weight: 800; line-height: 1.4; margin-bottom: 20px; }
+.dp-way__desc { font-size: 11px; color: var(--ink-3); line-height: 1.8; margin-bottom: 24px; }
+.dp-way__sub-title { font-size: 12px; font-weight: 700; margin-bottom: 10px; }
+.dp-way__list { display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; }
+.dp-way__list-item { font-size: 11px; color: var(--ink-3); line-height: 1.7; }
+
 /* ---- hero tagline: full frame video + giant wordmark ---- */
 .dp-hero-tagline { position: relative; height: 70vh; width: 100%; overflow: hidden; background: var(--ink); }
 .dp-hero-tagline video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -146,6 +157,9 @@
   .dp-simple-compare__head > div, .dp-simple-compare__row > div { text-align: left; }
   .dp-dual { padding: 56px 24px; }
   .dp-dual__grid { grid-template-columns: 1fr; column-gap: 0; row-gap: 28px; }
+
+  .dp-ways-section { padding: 56px 24px; }
+  .dp-ways-grid { grid-template-columns: 1fr; column-gap: 0; row-gap: 40px; }
 
   .dp-whofor { padding: 56px 24px; }
   .dp-whofor__grid { grid-template-columns: 1fr; column-gap: 0; }
