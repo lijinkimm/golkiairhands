@@ -37,6 +37,7 @@
 /* ===== generic 50/50-family split section ===== */
 .dp-split { width: 100%; display: flex; flex-wrap: nowrap; min-height: 72vh; background: var(--bg); }
 .dp-split--white { background: var(--white); }
+.dp-split__text--tan { background: #F3F1EB; }
 .dp-split--dark, .dp-split--dark .dp-split__text { background: #123524; }
 .dp-split--dark .dp-kicker, .dp-split--dark .dp-accent-label { color: #c9b896; }
 .dp-split--dark .dp-h2, .dp-split--dark .dp-product-name,
@@ -254,6 +255,11 @@
   .dp-split--dark .dp-split__media { background: #123524; }
   .dp-split--ink .dp-split__media { background: var(--ink); }
   .dp-fact-box { background: var(--white); }
+  .dp-split__text--tan { background: var(--white); }
+  .dp-comparison, .dp-ingredient-table, .dp-safety-item, .dp-footer, .dp-full-video {
+    background: var(--white);
+  }
+  .dp-ingredient-row { background: var(--white); }
   .dp-split__media { order: -1; aspect-ratio: 1 / 1; min-height: auto; }
   .dp-split__media,
   .dp-split--60-40 .dp-split__media, .dp-split--40-60 .dp-split__media,

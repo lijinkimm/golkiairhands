@@ -153,6 +153,8 @@
   .dp-hero-tagline__footer-label { position: static; text-align: left; padding: 0 24px 24px; color: var(--ink-3); }
 
   .dp-fullbleed-video { height: 40vh; }
+  .dp-card-grid-section:not(.dp-card-grid-section--dark),
+  .dp-ways-section, .dp-whofor, .dp-product-footer { background: var(--white); }
   .dp-card-grid-section { padding: 56px 24px; }
   .dp-card-grid { grid-template-columns: 1fr !important; }
   .dp-simple-compare__head, .dp-simple-compare__row { grid-template-columns: 1fr; text-align: left; gap: 6px; padding: 16px 20px; }
