@@ -1,0 +1,98 @@
+/* ===== product detail page — shared components ===== */
+/* Reuses deep.css variables + .dp-header/.dp-nav/.dp-split/.dp-kicker/
+   .dp-h2/.dp-body/.dp-rule/.dp-accent-label/.dp-tagline/.dp-fact-box —
+   this file only adds the components unique to detail pages. */
+
+.dp-back-link { font-size: 13px; letter-spacing: .04em; color: var(--ink-3); }
+
+/* ---- hero tagline: full frame video + giant wordmark ---- */
+.dp-hero-tagline { position: relative; height: 70vh; width: 100%; overflow: hidden; background: var(--ink); }
+.dp-hero-tagline video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dp-hero-tagline__mark { position: absolute; left: 32px; top: 20px; font-size: 64px; font-weight: 300; line-height: 1; color: var(--white); z-index: 1; }
+.dp-hero-tagline__sub { position: absolute; right: 32px; top: 24px; font-size: 10px; color: var(--white); text-align: right; z-index: 1; }
+.dp-hero-tagline__panel { position: absolute; left: 0; bottom: 0; padding: 48px; max-width: 600px; z-index: 1; }
+.dp-hero-tagline__kicker { font-size: 13px; letter-spacing: .12em; color: var(--white); font-weight: 700; margin-bottom: 16px; }
+.dp-hero-tagline__title { font-size: 26px; font-weight: 300; line-height: 1.4; color: var(--white); margin-bottom: 20px; }
+.dp-hero-tagline__body { font-size: 12px; color: var(--white); line-height: 1.8; margin-bottom: 20px; }
+.dp-hero-tagline__quote { font-size: 14px; font-weight: 300; color: var(--white); }
+.dp-hero-tagline__footer-label { position: absolute; right: 32px; bottom: 32px; font-size: 10px; color: var(--white); text-align: right; z-index: 1; }
+
+/* ---- overview hero: reuses .dp-split/.dp-split__media/.dp-split__text
+   directly (same 50/50 image+text pattern as every landing-page
+   product section, already fully responsive) — these classes just
+   add the price/CTA bar and product-name styling on top of that */
+.dp-overview__eyebrow { font-size: 13px; letter-spacing: .12em; color: var(--ink-5); margin-bottom: 8px; }
+.dp-overview__name { font-size: 30px; font-weight: 800; margin-bottom: 6px; }
+.dp-overview__subtitle { font-size: 13px; color: #8a6a4a; font-weight: 700; letter-spacing: .04em; }
+.dp-overview__headline { font-size: 19px; font-weight: 800; line-height: 1.4; margin: 20px 0; }
+.dp-overview__cta { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--ink); color: var(--bg); padding: 18px 24px; margin-top: 20px; }
+.dp-overview__cta-label { font-size: 14px; font-weight: 600; white-space: nowrap; }
+.dp-overview__cta-price { font-size: 16px; font-weight: 700; white-space: nowrap; }
+
+/* ---- numbered step list (reused for concept steps + usage steps) ---- */
+.dp-step-list { display: flex; flex-direction: column; }
+.dp-step { display: flex; gap: 20px; align-items: flex-start; border-top: 1px solid var(--line-2); padding: 22px 0; }
+.dp-step__n {
+  flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid #8a6a4a; color: #8a6a4a; font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.dp-step__title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.dp-step__desc { font-size: 12px; color: var(--ink-3); line-height: 1.7; }
+
+/* ---- who is it for: 2-col bordered list ---- */
+.dp-whofor { width: 100%; padding: 100px 64px; background: var(--bg); }
+.dp-whofor__inner { max-width: 1300px; margin: 0 auto; }
+.dp-whofor__grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; }
+.dp-whofor__item { border-top: 1px solid var(--line-2); padding: 20px 0; font-size: 13px; color: var(--ink-3); line-height: 1.7; }
+
+/* ---- closing statement on dark bg ---- */
+.dp-closing { position: relative; width: 100%; padding: 120px 64px; background: var(--ink); text-align: center; }
+.dp-closing__inner { max-width: 760px; margin: 0 auto; }
+.dp-closing__kicker { font-size: 13px; letter-spacing: .12em; color: #F3E9E4; font-weight: 700; margin-bottom: 28px; }
+.dp-closing__title { font-size: 26px; font-weight: 800; line-height: 1.6; color: var(--white); margin-bottom: 32px; }
+.dp-closing__sub { font-size: 14px; color: #F3E9E4; letter-spacing: .04em; margin-bottom: 28px; }
+.dp-closing__name { font-size: 16px; font-weight: 800; color: var(--white); margin-bottom: 10px; }
+.dp-closing__tags { font-size: 12px; color: #F3E9E4; letter-spacing: .04em; }
+
+/* ---- plain full-bleed video, no text overlay ---- */
+.dp-fullbleed-video { position: relative; height: 70vh; width: 100%; overflow: hidden; background: var(--ink); }
+.dp-fullbleed-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- simple 2-col headline list (e.g. dual functional care) ---- */
+.dp-dual { width: 100%; padding: 100px 64px; background: var(--white); }
+.dp-dual__inner { max-width: 1300px; margin: 0 auto; }
+.dp-dual__grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; margin-top: 24px; }
+.dp-dual__col-title { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
+.dp-dual__col-body { font-size: 12px; color: var(--ink-3); line-height: 1.9; }
+.dp-dual__footer { margin-top: 40px; border-top: 1px solid var(--line-2); padding-top: 24px; font-size: 15px; font-weight: 700; }
+
+/* ---- simple product-page footer ---- */
+.dp-product-footer { width: 100%; background: var(--bg-alt); padding: 48px; text-align: center; font-size: 12px; color: var(--ink-5); }
+
+/* ===== mobile ===== */
+@media (max-width: 860px) {
+  .dp-header { padding: 16px 20px; }
+  .dp-nav { gap: 14px; font-size: 10px; }
+
+  /* hero tagline: same stacked-video-then-text pattern used elsewhere
+     — too much text to safely overlay a video with fixed offsets */
+  .dp-hero-tagline { display: flex; flex-direction: column; height: auto; min-height: auto; background: var(--white); }
+  .dp-hero-tagline video { position: relative; inset: auto; width: 100%; aspect-ratio: 1 / 1; }
+  .dp-hero-tagline__mark { position: static; font-size: 32px; padding: 5mm 24px 0; color: var(--ink); }
+  .dp-hero-tagline__sub { position: static; text-align: left; padding: 8px 24px 0; color: var(--ink-3); font-size: 11px; }
+  .dp-hero-tagline__panel { position: static; max-width: 100%; padding: 20px 24px 32px; }
+  .dp-hero-tagline__kicker, .dp-hero-tagline__title, .dp-hero-tagline__body, .dp-hero-tagline__quote { color: var(--ink); }
+  .dp-hero-tagline__body { color: var(--ink-3); }
+  .dp-hero-tagline__footer-label { position: static; text-align: left; padding: 0 24px 24px; color: var(--ink-3); }
+
+  .dp-fullbleed-video { height: 40vh; }
+  .dp-dual { padding: 56px 24px; }
+  .dp-dual__grid { grid-template-columns: 1fr; column-gap: 0; row-gap: 28px; }
+
+  .dp-whofor { padding: 56px 24px; }
+  .dp-whofor__grid { grid-template-columns: 1fr; column-gap: 0; }
+
+  .dp-closing { padding: 64px 24px; }
+  .dp-closing__title { font-size: 22px; }
+}
