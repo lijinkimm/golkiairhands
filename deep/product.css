@@ -42,10 +42,10 @@
 .dp-hero-tagline__mark span { display: inline-block; background: #111110; padding: 3px 10px; }
 .dp-hero-tagline__sub { position: absolute; right: 32px; top: 24px; font-size: 10px; color: var(--white); text-align: right; z-index: 1; }
 .dp-hero-tagline__panel { position: absolute; left: 0; bottom: 0; padding: 48px; max-width: 600px; z-index: 1; }
-.dp-hero-tagline__kicker { display: inline-block; font-size: 13px; letter-spacing: .12em; color: var(--white); font-weight: 700; margin-bottom: 16px; background: #111110; padding: 3px 10px; }
-.dp-hero-tagline__title { display: inline-block; font-size: 26px; font-weight: 800; line-height: 1.4; color: var(--white); margin-bottom: 20px; background: #111110; padding: 3px 10px; }
+.dp-hero-tagline__kicker { display: inline-block; font-size: 11px; letter-spacing: .12em; color: var(--white); font-weight: 700; margin-bottom: 16px; background: #111110; padding: 3px 10px; }
+.dp-hero-tagline__title { display: inline-block; font-size: 21px; font-weight: 800; line-height: 1.4; color: var(--white); margin-bottom: 20px; background: #111110; padding: 3px 10px; }
 .dp-hero-tagline__body { font-size: 12px; color: var(--white); line-height: 1.8; margin-bottom: 20px; }
-.dp-hero-tagline__quote { display: inline-block; font-size: 16px; font-weight: 300; color: var(--white); background: #111110; padding: 3px 10px; }
+.dp-hero-tagline__quote { display: inline-block; font-size: 13px; font-weight: 300; color: var(--white); background: #111110; padding: 3px 10px; }
 .dp-hero-tagline__footer-label { position: absolute; right: 32px; bottom: 32px; font-size: 10px; color: var(--white); text-align: right; z-index: 1; }
 
 /* ---- overview hero: reuses .dp-split/.dp-split__media/.dp-split__text
