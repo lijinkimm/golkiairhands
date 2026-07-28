@@ -6,11 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------- force-start every video (mobile browsers can silently
-  // ignore the autoplay attribute; retry play() until it sticks) ----------
+  // ignore the autoplay attribute, and with the default preload mode
+  // they often never even fetch frame data for videos far down the
+  // page — so 'loadeddata' never fires and play() never gets called.
+  // IntersectionObserver forces a .load()+play() the moment a video
+  // is about to be scrolled into view, instead of passively waiting. ----------
   document.querySelectorAll('video').forEach((el) => {
     el.muted = true;
     el.playsInline = true;
     el.loop = true;
+    el.preload = 'auto';
     const tryPlay = () => {
       const p = el.play();
       if (p && p.catch) p.catch(() => setTimeout(tryPlay, 300));
@@ -20,6 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden && el.paused) tryPlay();
     });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        if (el.readyState < 2 && el.networkState !== 2) el.load();
+        tryPlay();
+      });
+    }, { rootMargin: '400px 0px' });
+    io.observe(el);
   });
 
   // ---------- numbered step list renderer ----------
