@@ -117,7 +117,7 @@
 .dp-hero-followup__features > div { flex: 1; min-width: 200px; }
 .dp-hero-followup__feature-title { display: inline-block; font-size: 12px; font-weight: 800; margin-bottom: 6px; background: #111110; padding: 3px 8px; }
 .dp-hero-followup__feature-title span { font-weight: 400; }
-.dp-hero-followup__feature-desc { display: inline-block; font-size: 6px; line-height: 1.6; opacity: .85; background: #111110; padding: 4px 8px; }
+.dp-hero-followup__feature-desc { display: inline-block; font-size: 6px; line-height: 1.6; color: var(--white); background: #111110; padding: 4px 8px; }
 
 /* ===== how to use ritual table ===== */
 .dp-ritual { width: 100%; background: var(--white); padding: 100px 64px; }
