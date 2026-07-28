@@ -14,6 +14,7 @@
 }
 .dp-nav::-webkit-scrollbar { display: none; }
 .dp-nav a { flex-shrink: 0; }
+.dp-nav__row { display: contents; }
 
 /* ===== shared primitives ===== */
 .dp-kicker { font-size: 13px; letter-spacing: .12em; color: #8a6a4a; font-weight: 700; margin-bottom: 20px; }
@@ -247,10 +248,14 @@
   .dp-logo { white-space: nowrap; flex-shrink: 0; font-size: 11px; }
   .dp-header { flex-wrap: wrap; row-gap: 8px; }
   .dp-nav {
-    flex-wrap: wrap; justify-content: flex-end;
-    gap: 6px 8px; font-size: 7.2px; max-width: 100%; width: 100%; margin-left: 0;
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 6px; font-size: 7px; max-width: 100%; width: 100%; margin-left: 0;
     overflow: visible; white-space: normal;
     -webkit-mask-image: none; mask-image: none;
+  }
+  .dp-nav__row {
+    display: flex; flex-wrap: wrap; justify-content: flex-start;
+    gap: 6px 8px; width: 100%;
   }
   .dp-hero { height: 100vh; aspect-ratio: auto; background: var(--white); padding-bottom: 7mm; }
   .dp-hero__img--desktop { display: none; }
