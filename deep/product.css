@@ -47,6 +47,10 @@
 .dp-hero-tagline__quote { font-size: 14px; font-weight: 300; color: var(--white); }
 .dp-hero-tagline__footer-label { position: absolute; right: 32px; bottom: 32px; font-size: 10px; color: var(--white); text-align: right; z-index: 1; }
 
+/* ---- per-page size/weight overrides (opt-in, desktop only — mobile resets below) ---- */
+.dp-hero-tagline__mark--xl { font-size: 98px; }
+.dp-hero-tagline__title--bold { font-weight: 700; }
+
 /* ---- boxed variant: only pages whose design uses black label-boxes opt in via this modifier ---- */
 .dp-hero-tagline--boxed .dp-hero-tagline__mark { font-size: 72px; }
 .dp-hero-tagline--boxed .dp-hero-tagline__mark span { display: inline-block; background: #111110; padding: 3px 10px; }
@@ -151,7 +155,8 @@
   .dp-hero-tagline { display: flex; flex-direction: column; height: auto; min-height: auto; background: var(--white); }
   .dp-hero-tagline video { position: relative; inset: auto; width: 100%; aspect-ratio: 1 / 1; }
   .dp-hero-tagline__mark,
-  .dp-hero-tagline--boxed .dp-hero-tagline__mark { position: static; font-size: 32px; padding: 5mm 24px 0; color: var(--ink); }
+  .dp-hero-tagline--boxed .dp-hero-tagline__mark,
+  .dp-hero-tagline__mark--xl { position: static; font-size: 32px; padding: 5mm 24px 0; color: var(--ink); }
   .dp-hero-tagline__mark span,
   .dp-hero-tagline--boxed .dp-hero-tagline__mark span { background: transparent; padding: 0; }
   .dp-hero-tagline__sub { position: static; text-align: left; padding: 8px 24px 0; color: var(--ink-3); font-size: 11px; }
@@ -160,7 +165,8 @@
   .dp-hero-tagline--boxed .dp-hero-tagline__kicker,
   .dp-hero-tagline--boxed .dp-hero-tagline__title,
   .dp-hero-tagline--boxed .dp-hero-tagline__quote { color: var(--ink); background: transparent; padding: 0; }
-  .dp-hero-tagline--boxed .dp-hero-tagline__title { font-weight: 300; }
+  .dp-hero-tagline--boxed .dp-hero-tagline__title,
+  .dp-hero-tagline__title--bold { font-weight: 300; }
   .dp-hero-tagline__quote,
   .dp-hero-tagline--boxed .dp-hero-tagline__quote { font-size: 14px; }
   .dp-hero-tagline__body { color: var(--ink-3); }
