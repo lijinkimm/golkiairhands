@@ -90,6 +90,8 @@
 .dp-whofor { width: 100%; padding: 100px 64px; background: var(--bg); }
 .dp-whofor__inner { max-width: 1300px; margin: 0 auto; }
 .dp-whofor__grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; }
+.dp-whofor__list { display: flex; flex-direction: column; gap: 6px; }
+.dp-whofor__list .dp-whofor__item { border-top: none; padding: 0; }
 .dp-whofor__item { border-top: 1px solid var(--line-2); padding: 20px 0; font-size: 13px; color: var(--ink-3); line-height: 1.7; }
 
 /* ---- closing statement on dark bg ---- */
