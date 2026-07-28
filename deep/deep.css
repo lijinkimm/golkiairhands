@@ -317,6 +317,13 @@
     left: 5mm; right: 5mm; width: calc(100% - 10mm);
     top: 7.5%; height: 85%;
   }
+  /* colored sections (dark green / near-black): media fills the box
+     edge-to-edge instead of the inset white-frame look used on plain
+     white sections */
+  .dp-split--dark .dp-split__media img, .dp-split--dark .dp-split__media video,
+  .dp-split--ink .dp-split__media img, .dp-split--ink .dp-split__media video {
+    left: 0; right: 0; width: 100%; top: 0; height: 100%;
+  }
   .dp-hero__slide img { position: absolute; top: 0; height: 100%; left: 0; width: 100%; }
   /* Azulene & Marine: 5:5 image on top, text stacked below (no
      overlay) instead of the desktop full-bg-with-caption layout */
