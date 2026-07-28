@@ -70,6 +70,13 @@
 .dp-card-grid-section--dark .dp-card-grid__item-desc { color: #E8E2D3; }
 .dp-card-grid__item-title { font-size: 13px; font-weight: 800; margin-bottom: 12px; }
 .dp-card-grid__item-desc { font-size: 11px; line-height: 1.7; }
+.dp-card-grid--center { text-align: center; }
+.dp-card-grid--center .dp-card-grid__item-title:empty { display: none; }
+.dp-card-grid--white-cards .dp-card-grid__item { background: var(--white); color: var(--ink); }
+.dp-card-grid--white-cards .dp-card-grid__item-desc { color: var(--ink-3); }
+
+.dp-simple-compare--left .dp-simple-compare__head > div,
+.dp-simple-compare--left .dp-simple-compare__row > div { text-align: left; }
 
 /* ---- 3-col comparison variant (label / general / deep) — overrides
    the 4-col grid from .dp-comparison-row / .dp-comparison__head ---- */
