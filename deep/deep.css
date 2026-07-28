@@ -258,8 +258,8 @@
     -webkit-mask-image: none; mask-image: none;
   }
   .dp-nav__row {
-    display: flex; flex-wrap: nowrap; justify-content: flex-start;
-    gap: 8px 0; width: 100%;
+    display: flex; flex-wrap: nowrap; justify-content: space-between;
+    gap: 4px 0; width: 100%;
   }
   .dp-nav__row a {
     display: inline-flex; align-items: center; height: 14px;
