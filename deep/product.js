@@ -41,4 +41,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = JSON.parse(el.getAttribute('data-text-list'));
     el.innerHTML = items.map((t) => `<div class="dp-whofor__item">${escapeHtml(t)}</div>`).join('');
   });
+
+  // ---------- generic N-column card grid (title + desc cards) ----------
+  document.querySelectorAll('[data-card-grid]').forEach((el) => {
+    const items = JSON.parse(el.getAttribute('data-card-grid'));
+    const cols = el.getAttribute('data-cols') || items.length;
+    el.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    el.innerHTML = items.map((c) => `
+      <div class="dp-card-grid__item">
+        <div class="dp-card-grid__item-title">${escapeHtml(c.title)}</div>
+        <div class="dp-card-grid__item-desc">${escapeHtml(c.desc)}</div>
+      </div>
+    `).join('');
+  });
+
+  // ---------- simple 2-col comparison rows renderer ----------
+  document.querySelectorAll('[data-compare-rows]').forEach((el) => {
+    const rows = JSON.parse(el.getAttribute('data-compare-rows'));
+    el.innerHTML = rows.map((r) => `
+      <div class="dp-simple-compare__row">
+        <div>${escapeHtml(r.a)}</div>
+        <div>${escapeHtml(r.b)}</div>
+      </div>
+    `).join('');
+  });
 });
