@@ -245,7 +245,13 @@
 @media (max-width: 860px) {
   .dp-header { padding: 16px 20px; }
   .dp-logo { white-space: nowrap; flex-shrink: 0; font-size: 11px; }
-  .dp-nav { gap: 10px; font-size: 8.5px; max-width: 54vw; margin-left: 12px; }
+  .dp-header { flex-wrap: wrap; row-gap: 8px; }
+  .dp-nav {
+    flex-wrap: wrap; justify-content: flex-end;
+    gap: 6px 8px; font-size: 7.2px; max-width: 100%; width: 100%; margin-left: 0;
+    overflow: visible; white-space: normal;
+    -webkit-mask-image: none; mask-image: none;
+  }
   .dp-hero { height: 100vh; aspect-ratio: auto; background: var(--white); padding-bottom: 7mm; }
   .dp-hero__img--desktop { display: none; }
   /* Hero Followup: same stacked-video-then-text pattern used for

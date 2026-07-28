@@ -138,8 +138,6 @@
 
 /* ===== mobile ===== */
 @media (max-width: 860px) {
-  .dp-header { padding: 16px 20px; }
-  .dp-nav { gap: 14px; font-size: 10px; }
 
   /* hero tagline: same stacked-video-then-text pattern used elsewhere
      — too much text to safely overlay a video with fixed offsets */
