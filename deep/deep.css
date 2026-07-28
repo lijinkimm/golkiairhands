@@ -291,6 +291,13 @@
   .dp-split__text--dark-green .dp-numbered-line__text { color: var(--ink-3); }
   .dp-split__text--dark-green .dp-numbered-line { border-top-color: var(--line-2); }
   .dp-split__text--dark-green .dp-numbered-line__n { background: #3b2e26; color: var(--bg); }
+  /* DEEP HAND CRÈME: red bg/white text on desktop, white/black on mobile
+     (per explicit request) — !important needed since the red styling
+     is inline on the element */
+  .dp-split__text--red { background: var(--white) !important; color: var(--ink) !important; }
+  .dp-split__text--red .dp-kicker { color: #8a6a4a !important; }
+  .dp-split__text--red .dp-h2, .dp-split__text--red .dp-tagline { color: var(--ink) !important; }
+  .dp-split__text--red .dp-body { color: var(--ink-3) !important; }
   .dp-split__media { order: -1; aspect-ratio: 1 / 1; min-height: auto; }
   .dp-split__media,
   .dp-split--60-40 .dp-split__media, .dp-split--40-60 .dp-split__media,
