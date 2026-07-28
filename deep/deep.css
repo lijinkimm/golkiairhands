@@ -44,6 +44,10 @@
 .dp-split--dark .dp-body, .dp-split--dark .dp-fact-box__body { color: #E4DECF; }
 .dp-split--dark .dp-rule { border-top-color: rgba(245,241,230,.25); }
 .dp-split--dark .dp-fact-box { background: rgba(255,255,255,.06); }
+.dp-split--ink, .dp-split--ink .dp-split__text { background: var(--ink); }
+.dp-split--ink .dp-h2, .dp-split--ink .dp-subhead, .dp-split--ink .dp-kicker,
+.dp-split--ink .dp-accent-label, .dp-split--ink .dp-tagline { color: var(--white); }
+.dp-split--ink .dp-rule { border-top-color: rgba(255,255,255,.25); }
 .dp-split__media { position: relative; flex: 0 0 50%; min-width: 0; overflow: hidden; background: var(--bg-alt); }
 .dp-split__media img, .dp-split__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .dp-split__text { flex: 0 0 50%; min-width: 0; padding: 100px 64px; display: flex; flex-direction: column; justify-content: center; background: var(--white); }
