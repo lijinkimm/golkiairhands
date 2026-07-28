@@ -35,9 +35,16 @@
 /* ===== generic 50/50-family split section ===== */
 .dp-split { width: 100%; display: flex; flex-wrap: nowrap; min-height: 72vh; background: var(--bg); }
 .dp-split--white { background: var(--white); }
+.dp-split--dark, .dp-split--dark .dp-split__text { background: #123524; }
+.dp-split--dark .dp-kicker, .dp-split--dark .dp-accent-label { color: #c9b896; }
+.dp-split--dark .dp-h2, .dp-split--dark .dp-product-name,
+.dp-split--dark .dp-fact-box__title, .dp-split--dark .dp-tagline { color: #F5F1E6; }
+.dp-split--dark .dp-body, .dp-split--dark .dp-fact-box__body { color: #E4DECF; }
+.dp-split--dark .dp-rule { border-top-color: rgba(245,241,230,.25); }
+.dp-split--dark .dp-fact-box { background: rgba(255,255,255,.06); }
 .dp-split__media { position: relative; flex: 0 0 50%; min-width: 0; overflow: hidden; background: var(--bg-alt); }
 .dp-split__media img, .dp-split__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.dp-split__text { flex: 0 0 50%; min-width: 0; padding: 100px 64px; display: flex; flex-direction: column; justify-content: center; background: var(--bg); }
+.dp-split__text { flex: 0 0 50%; min-width: 0; padding: 100px 64px; display: flex; flex-direction: column; justify-content: center; background: var(--white); }
 .dp-split--60-40 .dp-split__text { flex: 0 0 60%; }
 .dp-split--60-40 .dp-split__media { flex: 0 0 40%; }
 .dp-split--40-60 .dp-split__media { flex: 0 0 40%; }
@@ -81,7 +88,7 @@
 .dp-hero-followup__feature-desc { font-size: 12px; line-height: 1.6; opacity: .85; }
 
 /* ===== how to use ritual table ===== */
-.dp-ritual { width: 100%; background: var(--bg); padding: 100px 64px; }
+.dp-ritual { width: 100%; background: var(--white); padding: 100px 64px; }
 .dp-ritual__inner { max-width: 1300px; margin: 0 auto; }
 .dp-ritual__head {
   display: grid; grid-template-columns: 0.4fr 0.5fr 1.2fr 1.1fr 2fr;
@@ -108,7 +115,7 @@
 .dp-ingredient-frame__panel { position: absolute; left: 0; bottom: 0; padding: 64px; max-width: 640px; z-index: 1; }
 
 /* ===== routine by goal grid ===== */
-.dp-routines { width: 100%; background: var(--bg); padding: 100px 64px; }
+.dp-routines { width: 100%; background: var(--white); padding: 100px 64px; }
 .dp-routines__inner { max-width: 1300px; margin: 0 auto; }
 .dp-routines__grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; }
 .dp-routine { display: flex; gap: 28px; align-items: flex-start; border-top: 1px solid var(--line-2); padding: 36px 0; }
@@ -306,23 +313,18 @@
   .dp-reviews, .dp-faq { padding: 56px 24px; }
   .dp-footer { padding: 60px 20px 30px; }
 
-  /* mobile-only: flatten every section/panel background to white
-     (dp-section-d is video-backed and dp-ingredient-frame is a photo
-     background, so both are left alone) */
+  /* mobile-only: flatten sections that are always white/photo-backed
+     regardless of viewport (dp-section-d is video-backed and
+     dp-ingredient-frame is a photo background, so both are left alone).
+     .dp-split/.dp-split__text keep their real per-section color
+     (white/tan/dark-green/red) to match desktop — see .dp-split--dark
+     and the inline colors on the red Hand Crème panel. */
   .dp-header,
   .dp-hero, .dp-hero__slide,
-  .dp-split, .dp-split__media, .dp-split__text,
-  .dp-fact-box--card,
-  .dp-ritual, .dp-routines, .dp-comparison, .dp-comparison-row,
-  .dp-ingredient-table, .dp-full-video, .dp-safety, .dp-safety-item,
+  .dp-ritual, .dp-routines,
+  .dp-full-video, .dp-safety, .dp-safety-item,
   .dp-reviews, .dp-faq, .dp-footer {
     background: var(--white) !important;
   }
-  .dp-split__text { color: var(--ink) !important; }
-  .dp-split__text--red { color: var(--ink) !important; }
-  .dp-split__text--red .dp-kicker { color: #8a6a4a !important; }
-  .dp-split__text--red .dp-h2,
-  .dp-split__text--red .dp-tagline { color: var(--ink) !important; }
-  .dp-split__text--red .dp-body { color: var(--ink-3) !important; }
   .dp-fact-box--card { padding-left: 0; padding-right: 0; }
 }
