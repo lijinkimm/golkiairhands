@@ -65,4 +65,39 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `).join('');
   });
+
+  // ---------- 3-col comparison rows renderer (label / general / deep) ----------
+  document.querySelectorAll('[data-compare3-rows]').forEach((el) => {
+    const rows = JSON.parse(el.getAttribute('data-compare3-rows'));
+    el.innerHTML = rows.map((r) => `
+      <div class="dp-comparison-row">
+        <div class="dp-comparison-row__label">${escapeHtml(r.label)}</div>
+        <div class="dp-comparison-row__other">${escapeHtml(r.general)}</div>
+        <div class="dp-comparison-row__deep">${escapeHtml(r.deep)}</div>
+      </div>
+    `).join('');
+  });
+
+  // ---------- ratio/ingredient table renderer ----------
+  document.querySelectorAll('[data-ratio-table]').forEach((el) => {
+    const rows = JSON.parse(el.getAttribute('data-ratio-table'));
+    el.innerHTML = rows.map((r) => `
+      <div class="dp-ratio-table__row">
+        <div>${escapeHtml(r.name)}</div>
+        <div>${escapeHtml(r.percent)}</div>
+        <div>${escapeHtml(r.role)}</div>
+      </div>
+    `).join('');
+  });
+
+  // ---------- numbered single-line list renderer ----------
+  document.querySelectorAll('[data-numbered-lines]').forEach((el) => {
+    const items = JSON.parse(el.getAttribute('data-numbered-lines'));
+    el.innerHTML = items.map((s) => `
+      <div class="dp-numbered-line">
+        <div class="dp-numbered-line__n">${escapeHtml(s.n)}</div>
+        <div class="dp-numbered-line__text">${escapeHtml(s.text)}</div>
+      </div>
+    `).join('');
+  });
 });
