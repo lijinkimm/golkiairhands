@@ -6,7 +6,14 @@
   border-bottom: 1px solid var(--line);
 }
 .dp-logo { font-size: 15px; font-weight: 700; letter-spacing: .08em; }
-.dp-nav { display: flex; gap: 32px; font-size: 13px; letter-spacing: .04em; color: var(--ink-3); }
+.dp-nav {
+  display: flex; gap: 14px; font-size: 10px; letter-spacing: .03em; color: var(--ink-3);
+  overflow-x: auto; white-space: nowrap; max-width: 68vw; scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, black calc(100% - 20px), transparent 100%);
+  mask-image: linear-gradient(to right, black calc(100% - 20px), transparent 100%);
+}
+.dp-nav::-webkit-scrollbar { display: none; }
+.dp-nav a { flex-shrink: 0; }
 
 /* ===== shared primitives ===== */
 .dp-kicker { font-size: 13px; letter-spacing: .12em; color: #8a6a4a; font-weight: 700; margin-bottom: 20px; }
@@ -201,7 +208,8 @@
 /* ===== mobile ===== */
 @media (max-width: 860px) {
   .dp-header { padding: 16px 20px; }
-  .dp-nav { gap: 14px; font-size: 10px; }
+  .dp-logo { white-space: nowrap; flex-shrink: 0; font-size: 11px; }
+  .dp-nav { gap: 10px; font-size: 8.5px; max-width: 54vw; margin-left: 12px; }
   .dp-hero { height: 100vh; aspect-ratio: auto; background: var(--white); padding-bottom: 7mm; }
   .dp-hero__img--desktop { display: none; }
   /* Hero Followup: same stacked-video-then-text pattern used for
