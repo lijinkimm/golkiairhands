@@ -6,7 +6,7 @@
   border-bottom: 1px solid var(--line);
 }
 .dp-logo { font-size: 15px; font-weight: 700; letter-spacing: .08em; }
-.dp-logo__part { padding: 0 8px; border-right: 1px solid var(--line-2); }
+.dp-logo__part { display: inline-flex; align-items: center; padding: 0 8px; border-right: 1px solid var(--line-2); }
 .dp-logo__part:first-child { padding-left: 0; }
 .dp-logo__part:last-child { border-right: none; padding-right: 0; }
 .dp-nav {
@@ -249,7 +249,7 @@
 @media (max-width: 860px) {
   body { font-weight: 500; }
   .dp-header { padding: 10px 20px; }
-  .dp-logo { white-space: normal; flex-shrink: 1; max-width: 100%; font-size: 9px; line-height: 1.5; }
+  .dp-logo { white-space: normal; flex-shrink: 1; max-width: 100%; font-size: 10px; line-height: 1.5; }
   .dp-header { flex-wrap: wrap; row-gap: 5px; }
   .dp-nav {
     display: flex; flex-direction: column; align-items: flex-start;
@@ -261,7 +261,10 @@
     display: flex; flex-wrap: nowrap; justify-content: flex-start;
     gap: 8px 0; width: 100%;
   }
-  .dp-nav__row a { padding: 0 6px; border-right: 1px solid var(--line-2); white-space: nowrap; }
+  .dp-nav__row a {
+    display: inline-flex; align-items: center; height: 14px;
+    padding: 0 6px; border-right: 1px solid var(--line-2); white-space: nowrap;
+  }
   .dp-nav__row a:first-child { padding-left: 0; }
   .dp-nav__row a:last-child { border-right: none; padding-right: 0; }
   .dp-hero { height: 100vh; aspect-ratio: auto; background: var(--white); padding-bottom: 7mm; }
