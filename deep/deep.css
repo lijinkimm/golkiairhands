@@ -112,6 +112,9 @@
 .dp-ingredient-frame__media {
   position: absolute; inset: 0; background-size: cover; background-position: center;
 }
+.dp-ingredient-frame__media video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+}
 .dp-ingredient-frame__panel { position: absolute; left: 0; bottom: 0; padding: 64px; max-width: 640px; z-index: 1; }
 
 /* ===== routine by goal grid ===== */
