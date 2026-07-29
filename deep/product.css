@@ -49,6 +49,7 @@
 
 /* ---- per-page size/weight overrides (opt-in, desktop only — mobile resets below) ---- */
 .dp-hero-tagline__mark--xl { font-size: 98px; }
+.dp-hero-tagline__mark--lg { font-size: 95px; }
 .dp-hero-tagline__mark--md { font-size: 80px; }
 .dp-hero-tagline__mark--sm { font-size: 60px; }
 .dp-hero-tagline__title--bold { font-weight: 700; }
@@ -76,6 +77,7 @@
 
 /* ---- boxed variant: only pages whose design uses black label-boxes opt in via this modifier ---- */
 .dp-hero-tagline--boxed .dp-hero-tagline__mark { font-size: 72px; }
+.dp-hero-tagline--boxed .dp-hero-tagline__mark.dp-hero-tagline__mark--lg { font-size: 95px; }
 .dp-hero-tagline--boxed .dp-hero-tagline__mark span { display: inline-block; background: #111110; padding: 3px 10px; }
 .dp-hero-tagline--boxed .dp-hero-tagline__kicker { display: inline-block; font-size: 11px; background: #111110; padding: 3px 10px; }
 .dp-hero-tagline--boxed .dp-hero-tagline__title { display: inline-block; font-size: 21px; font-weight: 800; background: #111110; padding: 3px 10px; }
@@ -179,7 +181,9 @@
   .dp-hero-tagline video { position: relative; inset: auto; width: 100%; aspect-ratio: 1 / 1; }
   .dp-hero-tagline__mark,
   .dp-hero-tagline--boxed .dp-hero-tagline__mark,
+  .dp-hero-tagline--boxed .dp-hero-tagline__mark.dp-hero-tagline__mark--lg,
   .dp-hero-tagline__mark--xl,
+  .dp-hero-tagline__mark--lg,
   .dp-hero-tagline__mark--md,
   .dp-hero-tagline__mark--sm { position: static; font-size: 32px; padding: 5mm 24px 0; color: var(--ink); }
   .dp-hero-tagline__mark span,
