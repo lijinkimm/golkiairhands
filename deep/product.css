@@ -52,9 +52,10 @@
 .dp-hero-tagline__mark--md { font-size: 80px; }
 .dp-hero-tagline__title--bold { font-weight: 700; }
 .dp-hero-tagline__title--xbold { font-weight: 800; }
-.dp-hero-tagline__title--lg { font-size: 28px; }
-.dp-hero-tagline__quote--lg { font-size: 15px; }
-.dp-hero-tagline__body--xs { font-size: 11px; }
+.dp-hero-tagline__title--lg { font-size: 14px; }
+.dp-hero-tagline__quote--lg { font-size: 8px; }
+.dp-hero-tagline__body--xs { font-size: 6px; }
+.dp-hero-tagline__kicker--sm { font-size: 7px; }
 
 /* ---- dark-text variant: desktop only — mobile already renders ink-colored text ---- */
 .dp-hero-tagline--dark-text .dp-hero-tagline__mark,
@@ -188,6 +189,7 @@
   .dp-hero-tagline__title--bold,
   .dp-hero-tagline__title--xbold { font-weight: 300; }
   .dp-hero-tagline__kicker--light { font-weight: 700; }
+  .dp-hero-tagline__kicker--sm { font-size: 13px; }
   .dp-hero-tagline__title--lg { font-size: 26px; }
   .dp-hero-tagline__quote,
   .dp-hero-tagline--boxed .dp-hero-tagline__quote,
