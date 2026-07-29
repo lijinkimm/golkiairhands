@@ -50,6 +50,7 @@
 /* ---- per-page size/weight overrides (opt-in, desktop only — mobile resets below) ---- */
 .dp-hero-tagline__mark--xl { font-size: 98px; }
 .dp-hero-tagline__title--bold { font-weight: 700; }
+.dp-hero-tagline__title--xbold { font-weight: 800; }
 .dp-hero-tagline__kicker--light { font-weight: 300; }
 .dp-hero-tagline__body--sm { font-size: 11px; }
 
@@ -168,7 +169,8 @@
   .dp-hero-tagline--boxed .dp-hero-tagline__title,
   .dp-hero-tagline--boxed .dp-hero-tagline__quote { color: var(--ink); background: transparent; padding: 0; }
   .dp-hero-tagline--boxed .dp-hero-tagline__title,
-  .dp-hero-tagline__title--bold { font-weight: 300; }
+  .dp-hero-tagline__title--bold,
+  .dp-hero-tagline__title--xbold { font-weight: 300; }
   .dp-hero-tagline__kicker--light { font-weight: 700; }
   .dp-hero-tagline__quote,
   .dp-hero-tagline--boxed .dp-hero-tagline__quote { font-size: 14px; }
