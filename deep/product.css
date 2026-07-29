@@ -162,8 +162,10 @@
   .dp-hero-tagline__mark--xl { position: static; font-size: 32px; padding: 5mm 24px 0; color: var(--ink); }
   .dp-hero-tagline__mark span,
   .dp-hero-tagline--boxed .dp-hero-tagline__mark span { background: transparent; padding: 0; }
-  .dp-hero-tagline__sub { position: static; text-align: left; padding: 8px 24px 0; color: var(--ink-3); font-size: 11px; }
-  .dp-hero-tagline__panel { position: static; max-width: 100%; padding: 20px 24px 32px; }
+  .dp-hero-tagline__mark { order: 1; }
+  .dp-hero-tagline__panel { order: 2; position: static; max-width: 100%; padding: 12px 24px 32px; }
+  .dp-hero-tagline__sub { order: 3; position: static; text-align: left; padding: 8px 24px 0; color: var(--ink-3); font-size: 11px; }
+  .dp-hero-tagline__footer-label { order: 4; }
   .dp-hero-tagline__kicker, .dp-hero-tagline__title, .dp-hero-tagline__body, .dp-hero-tagline__quote,
   .dp-hero-tagline--boxed .dp-hero-tagline__kicker,
   .dp-hero-tagline--boxed .dp-hero-tagline__title,
