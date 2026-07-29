@@ -50,6 +50,7 @@
 /* ---- per-page size/weight overrides (opt-in, desktop only — mobile resets below) ---- */
 .dp-hero-tagline__mark--xl { font-size: 98px; }
 .dp-hero-tagline__mark--md { font-size: 80px; }
+.dp-hero-tagline__mark--sm { font-size: 60px; }
 .dp-hero-tagline__title--bold { font-weight: 700; }
 .dp-hero-tagline__title--xbold { font-weight: 800; }
 .dp-hero-tagline__title--lg { font-size: 21px; }
@@ -179,7 +180,8 @@
   .dp-hero-tagline__mark,
   .dp-hero-tagline--boxed .dp-hero-tagline__mark,
   .dp-hero-tagline__mark--xl,
-  .dp-hero-tagline__mark--md { position: static; font-size: 32px; padding: 5mm 24px 0; color: var(--ink); }
+  .dp-hero-tagline__mark--md,
+  .dp-hero-tagline__mark--sm { position: static; font-size: 32px; padding: 5mm 24px 0; color: var(--ink); }
   .dp-hero-tagline__mark span,
   .dp-hero-tagline--boxed .dp-hero-tagline__mark span { background: transparent; padding: 0; }
   .dp-hero-tagline__mark { order: 1; }
