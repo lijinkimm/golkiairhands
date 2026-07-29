@@ -60,6 +60,7 @@
 .dp-hero-tagline__body--2xs { font-size: 6px; }
 .dp-hero-tagline__kicker--sm { font-size: 11px; }
 .dp-hero-tagline__kicker--xs { font-size: 7px; }
+.dp-hero-tagline__kicker--md { font-size: 10px; }
 
 /* ---- dark-text variant: desktop only — mobile already renders ink-colored text ---- */
 .dp-hero-tagline--dark-text .dp-hero-tagline__mark,
@@ -194,7 +195,8 @@
   .dp-hero-tagline__title--xbold { font-weight: 300; }
   .dp-hero-tagline__kicker--light { font-weight: 700; }
   .dp-hero-tagline__kicker--sm,
-  .dp-hero-tagline__kicker--xs { font-size: 13px; }
+  .dp-hero-tagline__kicker--xs,
+  .dp-hero-tagline__kicker--md { font-size: 13px; }
   .dp-hero-tagline__title--lg,
   .dp-hero-tagline__title--sm { font-size: 26px; }
   .dp-hero-tagline__quote,
