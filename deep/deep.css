@@ -168,7 +168,7 @@
 .dp-comparison__head-deep { text-align: center; font-size: 16px; font-weight: 800; }
 .dp-comparison__head-other { text-align: center; font-size: 14px; font-weight: 700; color: var(--ink-3); }
 .dp-comparison__rows { display: flex; flex-direction: column; gap: 16px; }
-.dp-comparison-row { display: grid; grid-template-columns: 1fr 1.3fr 1fr 1fr; align-items: center; padding: 22px 32px; background: var(--white); border-radius: 8px; }
+.dp-comparison-row { display: grid; grid-template-columns: 1fr 1.3fr 1fr 1fr; align-items: center; padding: 22px 32px; background: #D2DBD1; border-radius: 8px; }
 .dp-comparison-row__label { font-size: 14px; color: var(--ink-3); }
 .dp-comparison-row__deep { text-align: center; font-size: 14px; font-weight: 700; white-space: pre-line; }
 .dp-comparison-row__other { text-align: center; font-size: 13px; color: var(--ink-3); white-space: pre-line; }
