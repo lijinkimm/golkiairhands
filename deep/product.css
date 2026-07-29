@@ -53,9 +53,13 @@
 .dp-hero-tagline__title--bold { font-weight: 700; }
 .dp-hero-tagline__title--xbold { font-weight: 800; }
 .dp-hero-tagline__title--lg { font-size: 21px; }
+.dp-hero-tagline__title--sm { font-size: 13px; }
 .dp-hero-tagline__quote--lg { font-size: 12px; }
+.dp-hero-tagline__quote--sm { font-size: 7px; }
 .dp-hero-tagline__body--xs { font-size: 9px; }
+.dp-hero-tagline__body--2xs { font-size: 6px; }
 .dp-hero-tagline__kicker--sm { font-size: 11px; }
+.dp-hero-tagline__kicker--xs { font-size: 7px; }
 
 /* ---- dark-text variant: desktop only — mobile already renders ink-colored text ---- */
 .dp-hero-tagline--dark-text .dp-hero-tagline__mark,
@@ -189,14 +193,18 @@
   .dp-hero-tagline__title--bold,
   .dp-hero-tagline__title--xbold { font-weight: 300; }
   .dp-hero-tagline__kicker--light { font-weight: 700; }
-  .dp-hero-tagline__kicker--sm { font-size: 13px; }
-  .dp-hero-tagline__title--lg { font-size: 26px; }
+  .dp-hero-tagline__kicker--sm,
+  .dp-hero-tagline__kicker--xs { font-size: 13px; }
+  .dp-hero-tagline__title--lg,
+  .dp-hero-tagline__title--sm { font-size: 26px; }
   .dp-hero-tagline__quote,
   .dp-hero-tagline--boxed .dp-hero-tagline__quote,
-  .dp-hero-tagline__quote--lg { font-size: 14px; }
+  .dp-hero-tagline__quote--lg,
+  .dp-hero-tagline__quote--sm { font-size: 14px; }
   .dp-hero-tagline__body,
   .dp-hero-tagline__body--sm,
-  .dp-hero-tagline__body--xs { color: var(--ink-3); font-size: 12px; }
+  .dp-hero-tagline__body--xs,
+  .dp-hero-tagline__body--2xs { color: var(--ink-3); font-size: 12px; }
   .dp-hero-tagline__footer-label { position: static; text-align: left; padding: 0 24px 24px; color: var(--ink-3); }
 
   .dp-fullbleed-video { height: 40vh; }
