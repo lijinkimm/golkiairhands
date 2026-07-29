@@ -34,9 +34,8 @@
 
 <main>
 
-  <!-- ============ SECTION C — desktop: full frame image / mobile: swipeable 5-image carousel ============ -->
-  <section class="dp-hero" id="section-c">
-    <img class="dp-hero__img--desktop" src="./assets/hero-face-crop.jpg" alt="">
+  <!-- ============ SECTION C — mobile only: swipeable 5-image carousel (desktop hero image removed) ============ -->
+  <section class="dp-hero">
     <div class="dp-hero__carousel">
       <div class="dp-hero__slide"><img src="./assets/hero-mobile-1.jpg?v=2" alt="DEEP FACE LAB"></div>
       <div class="dp-hero__slide"><img src="./assets/hero-mobile-2.jpg?v=2" alt="DEEP FACE LAB SIYO"></div>
@@ -72,7 +71,7 @@
   </section>
 
   <!-- ============ HERO FOLLOW-UP — full frame video ============ -->
-  <section class="dp-hero-followup">
+  <section class="dp-hero-followup" id="section-c">
     <video autoplay muted loop playsinline>
       <source src="./assets/landing-hero-followup-video.mp4" type="video/mp4">
     </video>
