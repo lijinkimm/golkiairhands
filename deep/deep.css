@@ -107,7 +107,7 @@
   position: relative; z-index: 1; min-height: 80vh; padding: 60px 51px;
   display: flex; flex-direction: column; color: var(--white);
 }
-.dp-hero-followup__title { font-size: 64px; font-weight: 300; letter-spacing: .06em; line-height: 1; }
+.dp-hero-followup__title { font-size: 95px; font-weight: 300; letter-spacing: .06em; line-height: 1; }
 .dp-hero-followup__title span { display: inline-block; background: #111110; padding: 4px 12px; }
 .dp-hero-followup__tagline { margin-top: 36px; max-width: 480px; }
 .dp-hero-followup__tagline p { display: inline-block; font-size: 6px; line-height: 1.7; margin: 0 0 14px; background: #111110; padding: 8px 10px; }
