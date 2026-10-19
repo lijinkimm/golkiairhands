@@ -48,11 +48,6 @@ How to wear it ㅣ 착용법
     { name: '하은', stars: '★★★★★', date: '한달 전', text: '디자인이 의료기기처럼 안 보여서 마음에 들어요. 선물용으로도 좋을 것 같아요.' },
   ];
 
-  const shortSrcMap = {
-    1: './assets/short-1.mp4', 2: './assets/short-2.mp4', 3: './assets/short-7.mp4', 4: './assets/short-4.mp4',
-    5: './assets/short-5.mp4', 6: './assets/short-6.mp4', 7: './assets/short-3.mp4', 8: './assets/short-8.mp4',
-  };
-
   // ---------- media fallback: label placeholders when real assets are missing ----------
   function armMediaFallback(root) {
     root.querySelectorAll('[data-media]').forEach((el) => {
@@ -313,17 +308,9 @@ How to wear it ㅣ 착용법
   // ---------- section B: video grid ----------
   const videoGrid = document.getElementById('videoGrid');
   for (let n = 1; n <= 8; n++) {
-    const src = shortSrcMap[n];
     const cell = document.createElement('div');
     cell.className = 'video-cell';
-    if (src) {
-      cell.innerHTML = `<video autoplay muted loop playsinline><source src="${src}" type="video/mp4"></video>`;
-      cell.querySelector('video').addEventListener('error', () => {
-        cell.innerHTML = `<div class="video-cell__play"><span></span></div><div class="video-cell__label">SHORT_${n}.MP4</div>`;
-      });
-    } else {
-      cell.innerHTML = `<div class="video-cell__play"><span></span></div><div class="video-cell__label">SHORT_${n}.MP4</div>`;
-    }
+    cell.innerHTML = '<img src="./assets/shorts-placeholder.webp" alt="영상">';
     videoGrid.appendChild(cell);
   }
 
