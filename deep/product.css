@@ -37,7 +37,7 @@
 
 /* ---- hero tagline: full frame video + giant wordmark ---- */
 .dp-hero-tagline { position: relative; height: 70vh; width: 100%; overflow: hidden; background: var(--ink); }
-.dp-hero-tagline video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dp-hero-tagline img, .dp-hero-tagline video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .dp-hero-tagline__mark { position: absolute; left: 32px; top: 20px; font-size: 64px; font-weight: 300; line-height: 1; color: var(--white); z-index: 1; }
 .dp-hero-tagline__sub { position: absolute; right: 32px; top: 24px; font-size: 10px; color: var(--white); text-align: right; z-index: 1; }
 .dp-hero-tagline__panel { position: absolute; left: 0; bottom: 0; padding: 48px; max-width: 600px; z-index: 1; }
@@ -178,7 +178,7 @@
   /* hero tagline: same stacked-video-then-text pattern used elsewhere
      — too much text to safely overlay a video with fixed offsets */
   .dp-hero-tagline { display: flex; flex-direction: column; height: auto; min-height: auto; background: var(--white); }
-  .dp-hero-tagline video { position: relative; inset: auto; width: 100%; aspect-ratio: 1 / 1; }
+  .dp-hero-tagline img, .dp-hero-tagline video { position: relative; inset: auto; width: 100%; aspect-ratio: 1 / 1; }
   .dp-hero-tagline__mark,
   .dp-hero-tagline--boxed .dp-hero-tagline__mark,
   .dp-hero-tagline--boxed .dp-hero-tagline__mark.dp-hero-tagline__mark--lg,
