@@ -15,7 +15,7 @@
 /* overview — video left / purchase panel right */
 .d-overview { height: 725px; width: 100%; display: flex; flex-wrap: nowrap; }
 .d-overview__media { flex: 0 0 50%; min-width: 0; position: relative; overflow: hidden; }
-.d-overview__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.d-overview__media img, .d-overview__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .d-overview__panel { flex: 0 0 50%; min-width: 0; padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; gap: 24px; background: var(--white); }
 .d-overview__desc { font-size: 12pt; color: var(--ink-3); line-height: 1.6; max-width: 420px; margin: 0; }
 
